@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-
+  imagenes:any = {
+    uno: 'assets/bannerDos.png',
+    dos: 'assets/banner.jpg',
+    tres: 'assets/bannerTres.jpg'
+  }
 }

@@ -1,8 +1,9 @@
+.position {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
 .redes-sociales {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     90deg,
@@ -12,18 +13,74 @@
   );
   color: #fff;
   height: 50px;
+  display: flex;
+  align-items: center;
 }
-.redes-sociales-links{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+.redes-sociales-ancho {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
 }
-.bxl-facebook-circle , .bxl-instagram, .bxl-youtube{
-    color: #fff;
-    font-size: 20px;
+.logo {
+  width: 200px;
 }
-.btn-light{
-    padding: 1px 20px;
-    
+.redes-sociales-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.bxl-facebook-circle,
+.bxl-instagram,
+.bxl-youtube {
+  color: #fff;
+  font-size: 20px;
+}
+.btn-light {
+  padding: 1px 20px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+.header-ancho {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+}
+.input-group {
+  width: 480px;
+  height: 20px;
+}
+.header-login {
+  display: flex;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.header-login h3 {
+  font-size: 18px;
+}
+.bx-log-in {
+  font-size: 22px;
+}
+.header-nav {
+  background-color: #1d5193;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0.2rem;
+}
+.header-nav a {
+  text-decoration: none;
+  color: #fff;
+  gap: 0.5rem;
 }

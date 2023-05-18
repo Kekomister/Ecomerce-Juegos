@@ -1,1 +1,50 @@
-<p>inicio works!</p>
+<main class="contenedor-main">
+  <div
+    id="carouselExampleAutoplaying"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img [src]="imagenes.dos" class="d-block w-100 tamaño" alt="img" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>
+            Prueben bastantes funcionalidades y se ven que algo no les cuadra me
+            avisan!
+          </h5>
+          <p>algunas veces a boostrap hay que meterle un poco de CSS</p>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <img [src]="imagenes.uno" class="d-block w-100 tamaño" alt="img" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Que onda gente vayan jugando con boostrap</h5>
+          <p>Es asi como se aprende!!!.</p>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        <img [src]="imagenes.tres" class="d-block w-100 tamaño" alt="img" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Y recuerden....</h5>
+          <p>JAMAS JUGAR LEAGUE OF LEGENDS ES UN CAMINO DE IDA.</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev"
+    >
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next"
+    >
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</main>

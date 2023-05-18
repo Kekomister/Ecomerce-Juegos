@@ -14,7 +14,7 @@ import { HeaderComponent } from './component/header/header.component';
     InicioComponent,
     ProductoComponent,
     ContactoComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
