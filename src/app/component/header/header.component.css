@@ -11,11 +11,19 @@
     rgba(0, 212, 255, 1) 100%
   );
   color: #fff;
+  height: 50px;
 }
 .redes-sociales-links{
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
 }
 .bxl-facebook-circle , .bxl-instagram, .bxl-youtube{
     color: #fff;
+    font-size: 20px;
+}
+.btn-light{
+    padding: 1px 20px;
+    
 }
