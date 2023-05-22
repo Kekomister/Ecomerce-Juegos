@@ -28,7 +28,32 @@
   text-align: center;
   padding-top: 5rem;
 }
-
+.section-productos{
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.section-productos-contenedor-title{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-productos div h2{
+  font-weight: 700;
+  color: #081581;
+}
+.section-productos div span{
+  width: 100px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.ancho{
+  width: 70%;
+  background-color: red;
+  margin: 0 auto;
+}
 @media (max-width: 480px) {
   .ancho-default {
     width: 90%;
