@@ -1,11 +1,33 @@
-<section class="contenedor-juegos">
+<section class="contenedor-juegos" *ngIf ="juegosElegidos.length == 0">
+
   <!-- slice sirve para que el for vaya desde el indice cero hasta el requerido (por defaul ene ste caaso en 6), pero esta dependendiente del input osea ques e pasa de padre a hijo -->
   <div *ngFor="let juego of juegos.slice(0, indiceRecorrido); let i=index">
     <article class="card-juego">
       
         <img src="" alt="img_{{ i }}" />
         <p>{{ juego.nombre }}</p>
+        <p>Precio : {{ juego.precio | currency}}</p>
+        <p>Generos : {{ juego.genero }}</p>
+        Consolas : {{ juego.consolas }}
 
     </article>
   </div>
+
+</section>
+
+<section class="contenedor-juegos" *ngIf ="juegosElegidos.length != 0">
+
+  <!-- slice sirve para que el for vaya desde el indice cero hasta el requerido (por defaul ene ste caaso en 6), pero esta dependendiente del input osea ques e pasa de padre a hijo -->
+  <div *ngFor="let juego of juegosElegidos.slice(0, indiceRecorrido); let i=index">
+    <article class="card-juego">
+      
+        <img src="" alt="img_{{ i }}" />
+        <p>{{ juego.nombre }}</p>
+        <p>Precio : {{ juego.precio | currency}}</p>
+        <p>Generos : {{ juego.genero }}</p>
+        <p>Consolas : {{ juego.consolas }}</p>
+
+    </article>
+  </div>
+  
 </section>

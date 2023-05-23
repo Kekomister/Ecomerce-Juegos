@@ -1,1 +1,89 @@
-<p>producto works!</p>
+<div class="contenedor-main">
+
+    <div class="accordion" id="accordionExample">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              <span> Consola </span>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <span class="barra_izquierda" (click) = "reset()"> Cualquier consola </span>
+              <div *ngFor="let consola of consolas">
+                <span class="barra_izquierda" (click)="consolaElegida(consola)"> {{consola}} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="true" aria-controls="collapseTwo">
+              Precio (Inclusivo)
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div>
+                <span class="barra_izquierda" (click) = "reset()"> Cualquier precio </span>
+              </div>
+              <div *ngFor="let precio of precios">
+                <span class="barra_izquierda" (click)="precioElegido(precio)"> De ${{precio}} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+              aria-expanded="true" aria-controls="collapseThree">
+              Año
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <span class="barra_izquierda" (click) = "reset()"> Cualquier año </span>
+              <div *ngFor="let anio of anios">
+                <span class="barra_izquierda" (click)="anioElegido(anio)"> {{anio}} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+              aria-expanded="true" aria-controls="collapseFour">
+              Genero
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div>
+                <span class="barra_izquierda" (click) = "reset()"> Cualquier genero </span>
+              </div>
+              <div *ngFor="let genero of generos">
+                <span class="barra_izquierda" (click)="generoElegido(genero)"> {{genero}} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+
+
+      <div class="contenedor_cajas">
+
+        <app-juegos *ngIf = "!elegido" (envioJuegos) = "recibirJuegos($event)" [indiceRecorrido] = "juegos.length"></app-juegos>
+      
+        <app-juegos *ngIf = "elegido" [indiceRecorrido] = "jElegidos.length" [juegosElegidos] = "jElegidos"></app-juegos>
+
+      </div>
+
+</div>
+

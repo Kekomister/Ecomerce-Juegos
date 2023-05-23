@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { take } from 'rxjs/operators';
+import { Juego } from 'src/app/models/juego.model';
 
 
 @Component({
@@ -8,27 +9,31 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./juegos.component.css'],
 })
 export class JuegosComponent {
+  @Output() envioJuegos : EventEmitter<Juego[]> = new EventEmitter<Juego[]>();
   @Input() indiceRecorrido: number = 6;
+
+  // variable que guarda todos los juegos que cumplan la condicion elegida en la opcion izquierda
+  @Input() juegosElegidos: Juego[] = [];
 
   juegos: any = [
     {
       id: 1,
       nombre: 'Cyberpunk 2077',
       descripcion: 'Descripción A',
-      precio: 50,
+      precio: 5000,
       consolas: ['PS4', 'PC'],
       genero: ['Acción', 'Aventura', 'Arcade'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
       id: 2,
       nombre: 'Batman',
       descripcion: 'Descripción B',
-      precio: 35,
+      precio: 3500,
       consolas: ['PC', 'Xbox', 'Wii'],
       genero: ['RPG', 'Estrategia', 'Simulación'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -38,7 +43,7 @@ export class JuegosComponent {
       precio: 87,
       consolas: ['XboxOne', 'PS4', 'PC'],
       genero: ['Terror', 'Deportivo', 'Simulación'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -48,7 +53,7 @@ export class JuegosComponent {
       precio: 12,
       consolas: ['PC', 'XboxOne', 'Wii', 'Xbox'],
       genero: ['Acción', 'Terror', 'Aventura'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -58,7 +63,7 @@ export class JuegosComponent {
       precio: 71,
       consolas: ['Xbox', 'Wii'],
       genero: ['Arcade', 'Estrategia', 'RPG'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -68,7 +73,7 @@ export class JuegosComponent {
       precio: 18,
       consolas: ['PS4', 'PC', 'XboxOne', 'Wii'],
       genero: ['Simulación', 'Musical', 'Aventura'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -78,7 +83,7 @@ export class JuegosComponent {
       precio: 93,
       consolas: ['PC', 'Xbox', 'XboxOne'],
       genero: ['Deportivo', 'Arcade', 'Terror'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -88,7 +93,7 @@ export class JuegosComponent {
       precio: 7,
       consolas: ['PS4', 'XboxOne', 'Wii'],
       genero: ['Simulación', 'Estrategia', 'Acción'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -98,7 +103,7 @@ export class JuegosComponent {
       precio: 63,
       consolas: ['PC', 'XboxOne', 'Xbox', 'Wii'],
       genero: ['Aventura', 'Arcade', 'Musical'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -108,7 +113,7 @@ export class JuegosComponent {
       precio: 41,
       consolas: ['PS4', 'PC', 'Xbox'],
       genero: ['Terror', 'RPG', 'Simulación'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -118,7 +123,7 @@ export class JuegosComponent {
       precio: 28,
       consolas: ['XboxOne', 'Wii'],
       genero: ['Acción', 'Estrategia', 'Deportivo'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -128,7 +133,7 @@ export class JuegosComponent {
       precio: 82,
       consolas: ['PC', 'XboxOne', 'Wii'],
       genero: ['Musical', 'Terror', 'Aventura'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -138,7 +143,7 @@ export class JuegosComponent {
       precio: 9,
       consolas: ['PS4', 'XboxOne', 'Xbox'],
       genero: ['Arcade', 'Simulación', 'RPG'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -148,7 +153,7 @@ export class JuegosComponent {
       precio: 76,
       consolas: ['PC', 'Xbox', 'Wii'],
       genero: ['Estrategia', 'Acción', 'Musical'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -158,7 +163,7 @@ export class JuegosComponent {
       precio: 34,
       consolas: ['PS4', 'PC', 'XboxOne'],
       genero: ['Deportivo', 'Terror', 'Aventura'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -168,7 +173,7 @@ export class JuegosComponent {
       precio: 66,
       consolas: ['XboxOne', 'Xbox'],
       genero: ['Terror', 'RPG', 'Estrategia'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -178,7 +183,7 @@ export class JuegosComponent {
       precio: 23,
       consolas: ['PC', 'XboxOne', 'Wii'],
       genero: ['Acción', 'Simulación', 'Musical'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -188,7 +193,7 @@ export class JuegosComponent {
       precio: 88,
       consolas: ['PS4', 'Xbox', 'XboxOne'],
       genero: ['Arcade', 'Estrategia', 'Terror'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -198,7 +203,7 @@ export class JuegosComponent {
       precio: 15,
       consolas: ['PC', 'Xbox'],
       genero: ['RPG', 'Aventura', 'Deportivo'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
     {
@@ -208,13 +213,16 @@ export class JuegosComponent {
       precio: 79,
       consolas: ['PS4', 'PC', 'Wii'],
       genero: ['Acción', 'Simulación', 'Musical'],
-      anioLanzamiento: 2021,
+      anioRelease: 2021,
       imagenes: [],
     },
   ];
 
   mostrar(juego:any){
     console.log(juego.nombre);
-    
+  }
+
+  ngOnInit(){
+    this.envioJuegos.emit(this.juegos);
   }
 }

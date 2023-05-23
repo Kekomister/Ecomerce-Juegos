@@ -1,0 +1,64 @@
+.contenedor-main {
+    padding-top: 200px;
+    display: flex;
+}
+
+div {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.contenedor_cajas::before{
+    display: grid;
+    content: " ";
+}
+
+.contenedor_cajas {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    gap: 1rem;
+}
+
+.caja{
+    width: 20%;
+    border: 0 solid #ddd;
+    padding: 5px;
+}
+
+.dentro_caja{
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    text-align: center;
+}
+
+.imagenes{
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+}
+
+.accordion{
+    display: block;
+    width: 20%;
+}
+
+.accordion-button{
+    background-color: aqua;
+}
+
+.accordion-body{
+    background-color:burlywood;
+}
+
+.barra_izquierda{
+    cursor: pointer;
+}
