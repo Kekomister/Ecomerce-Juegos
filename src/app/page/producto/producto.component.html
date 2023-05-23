@@ -81,7 +81,7 @@
 
         <app-juegos *ngIf = "!elegido" (envioJuegos) = "recibirJuegos($event)" [indiceRecorrido] = "juegos.length"></app-juegos>
       
-        <app-juegos *ngIf = "elegido" [indiceRecorrido] = "jElegidos.length" [juegosElegidos] = "jElegidos"></app-juegos>
+        <app-juegos *ngIf = "elegido" (envioJuegos) = "recibirJuegos($event)" [indiceRecorrido] = "jElegidos.length" [juegosElegidos] = "jElegidos"></app-juegos>
 
       </div>
 

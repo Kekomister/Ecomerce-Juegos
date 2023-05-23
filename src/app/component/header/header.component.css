@@ -25,6 +25,7 @@
 }
 .logo {
   width: 200px;
+  cursor: pointer;
 }
 .redes-sociales-links {
   display: flex;

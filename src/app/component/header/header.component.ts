@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   
+  textoBuscar : string = "";
+
+  buscar(){
+    this.router.navigate(['/producto',this.textoBuscar]);
+    this.textoBuscar = "";
+  }
+
+  reset(){
+    this.router.navigate(['']);
+  }
+
+constructor(private router : Router){}
+
 }

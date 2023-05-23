@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Juego } from 'src/app/models/juego.model';
 
 @Component({
@@ -7,9 +7,10 @@ import { Juego } from 'src/app/models/juego.model';
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.css']
 })
-export class ProductoComponent {
+export class ProductoComponent implements OnInit {
 
   elegido: boolean = false;
+  textoBuscar: string = "";
 
   // variable que guarda todos los juegos
   juegos: Juego[] = [];
@@ -30,9 +31,13 @@ export class ProductoComponent {
   generos: string[] = [];
 
   recibirJuegos(js: Juego[]) {
+    //console.log(this.router.navigated);
     this.juegos = js;
     for (let i = 0; i < this.juegos.length; i++) {
       this.chequearJuego(this.juegos[i]);
+    }
+    if (this.textoBuscar != "") {
+      this.buscar();
     }
   }
 
@@ -212,6 +217,42 @@ export class ProductoComponent {
     this.router.navigate(['/producto']);
   }
 
-  constructor(private router: Router) { }
+  buscar() {
+    // esto hace que la pagina se vea para casos especificos (consola,año,etc)
+    this.elegidoTrue();
+    // vacio la variable antes de usarla para que si ya la habia usado, no tenga juegos de antemano
+    this.jElegidos = [];
+    // entro en el array de juegos global
+    for (let i = 0; i < this.juegos.length; i++) {
+      // busco los juegos que dentro de su nombre tengan el texto de la variable 'value'
+      // los paso a lowercase para que no haya problemas de mayusculas
+      if (this.juegos[i].nombre?.toLowerCase().includes(this.textoBuscar.toLowerCase())) {
+        this.jElegidos.push(this.juegos[i]);
+      }
+    }
+
+  }
+
+  textoEnBuscar() {
+    let aux = this.textoBuscar;
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('value');
+      if (id != null) {
+        this.textoBuscar = String(id);
+        this.buscar();
+      }
+    });
+  }
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.textoEnBuscar();
+  }
+
+  ngOnDestroy() {
+    this.elegido = false;
+    this.textoBuscar = "";
+  }
 
 }

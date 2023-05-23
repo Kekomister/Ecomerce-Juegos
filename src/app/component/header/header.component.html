@@ -14,7 +14,7 @@
 
   <header class="header">
     <div class="header-ancho">
-      <img src="assets/logo.png" alt="img_logo" class="logo" />
+      <img src="assets/logo.png" alt="img_logo" class="logo" (click) = "reset()"/>
 
       <div class="input-group mb-3">
         <button
@@ -30,6 +30,8 @@
           placeholder="Que estas buscando?"
           aria-label="Example text with button addon"
           aria-describedby="button-addon1"
+          [(ngModel)] = "textoBuscar"
+          (change) = "buscar()"
         />
       </div>
 
