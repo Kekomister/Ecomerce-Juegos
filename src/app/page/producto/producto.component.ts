@@ -9,41 +9,41 @@ import { Juego } from 'src/app/models/juego.model';
 })
 export class ProductoComponent {
 
-elegido : boolean = false;
+  elegido: boolean = false;
 
-// variable que guarda todos los juegos
-juegos: Juego[] = [];
+  // variable que guarda todos los juegos
+  juegos: Juego[] = [];
 
-// variable que guarda todos los juegos
-jElegidos: Juego[] = [];
+  // variable que guarda todos los juegos
+  jElegidos: Juego[] = [];
 
-// variable que guarda todas las consolas
-consolas: string[] = [];
+  // variable que guarda todas las consolas
+  consolas: string[] = [];
 
-// variable que guarda todos los años
-anios: number[] = [];
+  // variable que guarda todos los años
+  anios: number[] = [];
 
-// variable que guarda los rangos de precio
-precios: string[] = ["1000 - 2000", "2000 - 3000", "3000 - 4000", "4000 - 5000", "5000 - 6000"];
+  // variable que guarda los rangos de precio
+  precios: string[] = ["1000 - 2000", "2000 - 3000", "3000 - 4000", "4000 - 5000", "5000 - 6000"];
 
-// variable que guarda todos los generos
-generos: string[] = [];
+  // variable que guarda todos los generos
+  generos: string[] = [];
 
-recibirJuegos(js : Juego[]){
-  this.juegos = js;
-  for(let i = 0; i < this.juegos.length; i++){
-    this.chequearJuego(this.juegos[i]);
+  recibirJuegos(js: Juego[]) {
+    this.juegos = js;
+    for (let i = 0; i < this.juegos.length; i++) {
+      this.chequearJuego(this.juegos[i]);
+    }
   }
-}
 
-// funcion para agregar juegos al array juegos (lo llamo en el OnInit)
-chequearJuego(j: Juego) {
-  // checkeo las consolas de ese juego
-  this.checkConsola(j.consolas);
-  // checkeo los generos de ese juego
-  this.checkGenero(j.genero);
-  // checkeo el año de ese juego
-  this.checkAnio(j.anioRelease);
+  // funcion para agregar juegos al array juegos (lo llamo en el OnInit)
+  chequearJuego(j: Juego) {
+    // checkeo las consolas de ese juego
+    this.checkConsola(j.consolas);
+    // checkeo los generos de ese juego
+    this.checkGenero(j.genero);
+    // checkeo el año de ese juego
+    this.checkAnio(j.anioRelease);
   }
 
   checkConsola(cslas: string[]) {
@@ -83,7 +83,7 @@ chequearJuego(j: Juego) {
     }
   }
 
-  checkGenero(gen : string[]){
+  checkGenero(gen: string[]) {
     // creo una variable que me diga si ese genero esta
     let yaEsta = false;
     // entro en array de generos del juego especifico que estoy chequeando
@@ -130,7 +130,7 @@ chequearJuego(j: Juego) {
     // el precio que estoy buscando es de [*** a ***], entonces necesito separarlo en inicio y fin
     let inicio = this.rangoInicio(pcio);
     let fin = this.rangoFin(pcio);
-    
+
     // entro en el array de juegos global
     for (let i = 0; i < this.juegos.length; i++) {
       // paso mi precio a numero (no me acuerdo porque lo hize texto, pero lo necesitaba)
@@ -184,7 +184,7 @@ chequearJuego(j: Juego) {
     }
   }
 
-  generoElegido(gen : string){
+  generoElegido(gen: string) {
     // esto hace que la pagina se vea para casos especificos (consola,año,etc)
     this.elegidoTrue();
     // vacio la variable antes de usarla para que si ya la habia usado, no tenga juegos de antemano
@@ -201,17 +201,17 @@ chequearJuego(j: Juego) {
     }
   }
 
-  elegidoTrue(){
+  elegidoTrue() {
     this.elegido = true;
   }
 
-// funcion para poner los productos en su manera natural
-reset() {
-  this.jElegidos = [];
-  this.elegido = false;
-  this.router.navigate(['/producto']);
-}
+  // funcion para poner los productos en su manera natural
+  reset() {
+    this.jElegidos = [];
+    this.elegido = false;
+    this.router.navigate(['/producto']);
+  }
 
-constructor(private router : Router){}
+  constructor(private router: Router) { }
 
 }

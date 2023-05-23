@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Juego } from 'src/app/models/juego.model';
 
@@ -218,11 +219,18 @@ export class JuegosComponent {
     },
   ];
 
+  verDetalle(j : Juego){
+    this.router.navigate(['/detalle',j.nombre]);
+  }
+
   mostrar(juego:any){
     console.log(juego.nombre);
   }
 
   ngOnInit(){
+    // envio el array de juegos al que lo llame
     this.envioJuegos.emit(this.juegos);
   }
+
+  constructor(private router : Router){}
 }
