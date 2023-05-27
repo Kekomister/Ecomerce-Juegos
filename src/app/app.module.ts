@@ -11,6 +11,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { JuegosComponent } from './component/juegos/juegos.component';
 import { DetalleComponent } from './page/detalle/detalle.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { DetalleComponent } from './page/detalle/detalle.component';
     ContactoComponent,
     HeaderComponent,
     JuegosComponent,
-    DetalleComponent
+    DetalleComponent,
   ],
   imports: [
     BrowserModule,

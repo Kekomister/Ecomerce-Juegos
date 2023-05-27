@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.models';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  
+  verModal: boolean = false
+  estadLog: boolean = false
   textoBuscar : string = "";
+  userPrueba: User = new User ("usuario" , "usuario@gmail.com" , "usuario")
+  
+  capturarContrasenia: string | undefined;
+  capturarMail: string | undefined;
 
-  buscar(){
-    this.router.navigate(['/producto',this.textoBuscar]);
+
+
+  buscar():void{
+    this.router.navigate(['/producto/',this.textoBuscar]);
     this.textoBuscar = "";
   }
 
@@ -21,4 +29,19 @@ export class HeaderComponent {
 
 constructor(private router : Router){}
 
+//funcion para abril modal de log
+abrirCerrarModalDeLog():void{
+  this.verModal = !this.verModal
+}
+
+
+//funcion de log
+loguear():void{ 
+  if (this.userPrueba.mail === this.capturarMail && this.userPrueba.contraseña === this.capturarContrasenia) {
+    this.abrirCerrarModalDeLog()
+    this.estadLog = true
+  }else{
+    //manejo de mail o contraseña incorrecto
+  }
+}
 }

@@ -37,7 +37,8 @@
 
       <div class="header-login">
         <i class="bx bx-log-in"></i>
-        <h3>Ingresar</h3>
+        <h3 (click)="abrirCerrarModalDeLog()" *ngIf="!estadLog">Ingresar</h3>
+        <h3  *ngIf="estadLog">Hola {{userPrueba.nombreUsuario}}</h3>
       </div>
     </div>
 
@@ -48,4 +49,20 @@
     </nav>
   </header>
 </div>
+
+<section class="sombra" *ngIf="verModal">
+  <div class="form-login">
+    <h2 class="cerrar" (click)="abrirCerrarModalDeLog()">X</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)] = "capturarMail">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input  type="password" class="form-control" id="exampleInputPassword1"  [(ngModel)] = "capturarContrasenia">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="loguear()">Submit</button>
+  </div>
+</section>
 
