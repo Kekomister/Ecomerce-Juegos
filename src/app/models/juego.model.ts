@@ -6,6 +6,7 @@ export class Juego {
   consolas: string[] = [];
   genero: string[] = [];
   anioRelease: number;
+  requisitos: string | undefined;
     
   constructor(
     imgs: string[],
@@ -14,7 +15,8 @@ export class Juego {
     pcio: string,
     consolas: string[],
     genero: string[],
-    anio: number
+    anio: number,
+    requisitos: string
   ) {
     this.imagenes = imgs;
     this.nombre = nom;
@@ -23,5 +25,6 @@ export class Juego {
     this.consolas = consolas;
     this.genero = genero;
     this.anioRelease = anio;
+    this.requisitos = requisitos
   }
 }

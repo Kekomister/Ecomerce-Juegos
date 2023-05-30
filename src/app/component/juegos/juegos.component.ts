@@ -26,6 +26,7 @@ export class JuegosComponent {
       genero: ['Acción', 'Aventura', 'Arcade'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Bajo"
     },
     {
       id: 2,
@@ -36,6 +37,7 @@ export class JuegosComponent {
       genero: ['RPG', 'Estrategia', 'Simulación'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Medio"
     },
     {
       id: 3,
@@ -46,6 +48,7 @@ export class JuegosComponent {
       genero: ['Terror', 'Deportivo', 'Simulación'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 4,
@@ -56,6 +59,7 @@ export class JuegosComponent {
       genero: ['Acción', 'Terror', 'Aventura'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 5,
@@ -66,6 +70,7 @@ export class JuegosComponent {
       genero: ['Arcade', 'Estrategia', 'RPG'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Bajo"
     },
     {
       id: 6,
@@ -76,6 +81,7 @@ export class JuegosComponent {
       genero: ['Simulación', 'Musical', 'Aventura'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Medio"
     },
     {
       id: 7,
@@ -86,6 +92,7 @@ export class JuegosComponent {
       genero: ['Deportivo', 'Arcade', 'Terror'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 8,
@@ -96,6 +103,7 @@ export class JuegosComponent {
       genero: ['Simulación', 'Estrategia', 'Acción'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Bajo"
     },
     {
       id: 9,
@@ -106,6 +114,7 @@ export class JuegosComponent {
       genero: ['Aventura', 'Arcade', 'Musical'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 10,
@@ -116,6 +125,7 @@ export class JuegosComponent {
       genero: ['Terror', 'RPG', 'Simulación'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 11,
@@ -126,6 +136,7 @@ export class JuegosComponent {
       genero: ['Acción', 'Estrategia', 'Deportivo'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Medio"
     },
     {
       id: 12,
@@ -136,6 +147,7 @@ export class JuegosComponent {
       genero: ['Musical', 'Terror', 'Aventura'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Medio"
     },
     {
       id: 13,
@@ -146,6 +158,7 @@ export class JuegosComponent {
       genero: ['Arcade', 'Simulación', 'RPG'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Bajo"
     },
     {
       id: 14,
@@ -156,6 +169,7 @@ export class JuegosComponent {
       genero: ['Estrategia', 'Acción', 'Musical'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 15,
@@ -166,6 +180,7 @@ export class JuegosComponent {
       genero: ['Deportivo', 'Terror', 'Aventura'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 16,
@@ -176,6 +191,7 @@ export class JuegosComponent {
       genero: ['Terror', 'RPG', 'Estrategia'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Medio"
     },
     {
       id: 17,
@@ -186,6 +202,7 @@ export class JuegosComponent {
       genero: ['Acción', 'Simulación', 'Musical'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 18,
@@ -196,6 +213,7 @@ export class JuegosComponent {
       genero: ['Arcade', 'Estrategia', 'Terror'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
     {
       id: 19,
@@ -206,6 +224,7 @@ export class JuegosComponent {
       genero: ['RPG', 'Aventura', 'Deportivo'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Bajo"
     },
     {
       id: 20,
@@ -216,6 +235,7 @@ export class JuegosComponent {
       genero: ['Acción', 'Simulación', 'Musical'],
       anioRelease: 2021,
       imagenes: [],
+      requisitos: "Alto"
     },
   ];
 

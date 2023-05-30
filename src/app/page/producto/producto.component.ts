@@ -29,11 +29,14 @@ export class ProductoComponent implements OnInit {
 
   // variable que guarda todos los generos
   generos: string[] = [];
+  // arreglo que voy a usar para funcion de filtro
+  juegoRecibido: any[] = [];
 
   recibirJuegos(js: Juego[]) {
     //console.log(this.router.navigated);
     this.juegos = js;
     for (let i = 0; i < this.juegos.length; i++) {
+      this.juegoRecibido.push(this.juegos)
       this.chequearJuego(this.juegos[i]);
     }
     if (this.textoBuscar != "") {
@@ -244,6 +247,18 @@ export class ProductoComponent implements OnInit {
     });
   }
 
+  filtrarPorRequisito(requi:string):void{
+    console.log(requi);
+    console.log(this.juegoRecibido);
+    
+    this.jElegidos = []
+    this.juegoRecibido.map((juego , index)=> {
+      juego[index].requisitos.toLowerCase() === requi.toLowerCase() ? this.jElegidos.push(juego[index]) : null;
+    })
+    console.log(this.jElegidos);
+    
+    // this.jElegidos.push(juego[index])
+  }
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {

@@ -1,6 +1,12 @@
 .contenedor-main {
     padding-top: 200px;
     display: flex;
+    width: 70%;
+    margin: 0 auto;
+}
+.ancho-default{
+    display: flex;
+    width: 70%;
 }
 
 div {
@@ -48,15 +54,18 @@ div {
 
 .accordion{
     display: block;
-    width: 20%;
+    width: 40%;
 }
 
 .accordion-button{
-    background-color: aqua;
+    background-color: #081581;
+    color: #fff;
 }
 
 .accordion-body{
-    background-color:burlywood;
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
 }
 
 .barra_izquierda{
