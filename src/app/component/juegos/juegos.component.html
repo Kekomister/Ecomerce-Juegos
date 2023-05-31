@@ -4,7 +4,7 @@
   <div *ngFor="let juego of juegos.slice(0, indiceRecorrido); let i=index">
     <article class="card-juego" (click) = "verDetalle(juego)">
       
-        <img src="" alt="img_{{ i }}" />
+        <img src="{{juego.imagenes}}" alt="img_{{ i }}" />
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency}}</p>
         <p>Generos : {{ juego.genero }}</p>
@@ -21,7 +21,7 @@
   <div *ngFor="let juego of juegosElegidos.slice(0, indiceRecorrido); let i=index">
     <article class="card-juego" (click) = "verDetalle(juego)">
       
-        <img src="" alt="img_{{ i }}" />
+        <img src="{{juego.imagenes}}" alt="img_{{ i }}" />
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency}}</p>
         <p>Generos : {{ juego.genero }}</p>

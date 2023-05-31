@@ -25,7 +25,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'PC'],
       genero: ['Acción', 'Aventura', 'Arcade'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Cyber Punk.jpg'],
       requisitos: "Bajo"
     },
     {
@@ -36,7 +36,7 @@ export class JuegosComponent {
       consolas: ['PC', 'Xbox', 'Wii'],
       genero: ['RPG', 'Estrategia', 'Simulación'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Batman.jpg'],
       requisitos: "Medio"
     },
     {
@@ -47,7 +47,7 @@ export class JuegosComponent {
       consolas: ['XboxOne', 'PS4', 'PC'],
       genero: ['Terror', 'Deportivo', 'Simulación'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Minecraft.jpg'],
       requisitos: "Alto"
     },
     {
@@ -58,7 +58,7 @@ export class JuegosComponent {
       consolas: ['PC', 'XboxOne', 'Wii', 'Xbox'],
       genero: ['Acción', 'Terror', 'Aventura'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Fortnine.jpg'],
       requisitos: "Alto"
     },
     {
@@ -69,7 +69,7 @@ export class JuegosComponent {
       consolas: ['Xbox', 'Wii'],
       genero: ['Arcade', 'Estrategia', 'RPG'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Call of Duty Warzone.jpg'],
       requisitos: "Bajo"
     },
     {
@@ -80,7 +80,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'PC', 'XboxOne', 'Wii'],
       genero: ['Simulación', 'Musical', 'Aventura'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/GTA V.jpg'],
       requisitos: "Medio"
     },
     {
@@ -91,7 +91,7 @@ export class JuegosComponent {
       consolas: ['PC', 'Xbox', 'XboxOne'],
       genero: ['Deportivo', 'Arcade', 'Terror'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/The Witcher 3.jpg'],
       requisitos: "Alto"
     },
     {
@@ -102,7 +102,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'XboxOne', 'Wii'],
       genero: ['Simulación', 'Estrategia', 'Acción'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Super Mario.jpg'],
       requisitos: "Bajo"
     },
     {
@@ -113,7 +113,7 @@ export class JuegosComponent {
       consolas: ['PC', 'XboxOne', 'Xbox', 'Wii'],
       genero: ['Aventura', 'Arcade', 'Musical'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ["assets/Assasin'S.jpg"],
       requisitos: "Alto"
     },
     {
@@ -124,7 +124,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'PC', 'Xbox'],
       genero: ['Terror', 'RPG', 'Simulación'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Halo.jpg'],
       requisitos: "Alto"
     },
     {
@@ -135,7 +135,7 @@ export class JuegosComponent {
       consolas: ['XboxOne', 'Wii'],
       genero: ['Acción', 'Estrategia', 'Deportivo'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['asset/God of War.jpg'],
       requisitos: "Medio"
     },
     {
@@ -146,7 +146,7 @@ export class JuegosComponent {
       consolas: ['PC', 'XboxOne', 'Wii'],
       genero: ['Musical', 'Terror', 'Aventura'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/FIFA 22.jpg'],
       requisitos: "Medio"
     },
     {
@@ -157,7 +157,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'XboxOne', 'Xbox'],
       genero: ['Arcade', 'Simulación', 'RPG'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Resident.jpg'],
       requisitos: "Bajo"
     },
     {
@@ -168,7 +168,7 @@ export class JuegosComponent {
       consolas: ['PC', 'Xbox', 'Wii'],
       genero: ['Estrategia', 'Acción', 'Musical'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Tsushima.jpg'],
       requisitos: "Alto"
     },
     {
@@ -179,7 +179,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'PC', 'XboxOne'],
       genero: ['Deportivo', 'Terror', 'Aventura'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Ratcher.jpg'],
       requisitos: "Alto"
     },
     {
@@ -190,7 +190,7 @@ export class JuegosComponent {
       consolas: ['XboxOne', 'Xbox'],
       genero: ['Terror', 'RPG', 'Estrategia'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Animals.jpg'],
       requisitos: "Medio"
     },
     {
@@ -201,7 +201,7 @@ export class JuegosComponent {
       consolas: ['PC', 'XboxOne', 'Wii'],
       genero: ['Acción', 'Simulación', 'Musical'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Spiderman.jpg'],
       requisitos: "Alto"
     },
     {
@@ -212,7 +212,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'Xbox', 'XboxOne'],
       genero: ['Arcade', 'Estrategia', 'Terror'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Horizon.jpg'],
       requisitos: "Alto"
     },
     {
@@ -223,7 +223,7 @@ export class JuegosComponent {
       consolas: ['PC', 'Xbox'],
       genero: ['RPG', 'Aventura', 'Deportivo'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Borderlands.jpg'],
       requisitos: "Bajo"
     },
     {
@@ -234,7 +234,7 @@ export class JuegosComponent {
       consolas: ['PS4', 'PC', 'Wii'],
       genero: ['Acción', 'Simulación', 'Musical'],
       anioRelease: 2021,
-      imagenes: [],
+      imagenes: ['assets/Elden.jpg'],
       requisitos: "Alto"
     },
   ];
