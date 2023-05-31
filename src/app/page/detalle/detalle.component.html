@@ -4,7 +4,7 @@
 
     <article class="card-juego" *ngIf = "juego">
       
-        <img src="" alt="img_1" />
+        <img src="{{ juego.imagenes }}" alt="img_1" class="card-juego-img"/>
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency}}</p>
         <p>Generos : {{ juego.genero }}</p>

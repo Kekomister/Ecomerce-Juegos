@@ -135,7 +135,7 @@ export class JuegosComponent {
       consolas: ['XboxOne', 'Wii'],
       genero: ['Acción', 'Estrategia', 'Deportivo'],
       anioRelease: 2021,
-      imagenes: ['asset/God of War.jpg'],
+      imagenes: ['assets/God of War.jpg'],
       requisitos: "Medio"
     },
     {
