@@ -251,12 +251,12 @@ export class ProductoComponent implements OnInit {
     console.log(requi);
     console.log(this.juegoRecibido);
     
+    this.elegidoTrue();
     this.jElegidos = []
     this.juegoRecibido.map((juego , index)=> {
       juego[index].requisitos.toLowerCase() === requi.toLowerCase() ? this.jElegidos.push(juego[index]) : null;
     })
     console.log(this.jElegidos);
-    
     // this.jElegidos.push(juego[index])
   }
   constructor(private router: Router, private route: ActivatedRoute) { }
