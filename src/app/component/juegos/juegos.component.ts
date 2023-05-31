@@ -45,7 +45,7 @@ export class JuegosComponent {
       descripcion: 'Descripción C',
       precio: 87,
       consolas: ['XboxOne', 'PS4', 'PC'],
-      genero: ['Terror', 'Deportivo', 'Simulación'],
+      genero: ['Terror', 'Deportivo'],
       anioRelease: 2021,
       imagenes: ['assets/Minecraft.jpg'],
       requisitos: "Alto"
