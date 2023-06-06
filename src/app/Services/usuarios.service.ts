@@ -6,8 +6,9 @@ import { User } from '../models/user.models';
 })
 export class UsuariosService {
 
-  private userPrueba: User = new User ("usuario" , "usuario@gmail.com" , "usuario")
-  private estadLog: boolean = false
+  private userPrueba: User = new User ("usuario" , "usuario@gmail.com" , "usuario");
+  private estadLog: boolean = false;
+  public verModal: boolean = false;
 
   constructor() { }
 
