@@ -13,8 +13,8 @@
         <p>Consolas : {{ juego.consolas }}</p>
         <p>Requisitos : {{ juego.requisitos }}</p>
         <div class="carrito">
-            <button class="carrito-btn"><i class='bx bx-cart'></i></button>
-            <button class="carrito-comprar">Comprar</button>
+            <button (click)="agregar(juego)" class="carrito-btn"><i class='bx bx-cart'></i></button>
+            <button (click)="comprar(juego)" class="carrito-comprar">Comprar</button>
         </div>
     </article>
 </div>
