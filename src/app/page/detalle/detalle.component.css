@@ -1,6 +1,7 @@
 .contenedor-main {
-    padding-top: 200px;
+    padding-top: 250px;
     display: flex;
+    justify-content: center;
 }
 
 .card-juego{
@@ -11,10 +12,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding-bottom: 10px;
 }
 
 .card-juego-img{
+    border-radius: 15px 15px 0px 0px;
     width: 350px;
     height: 350px;
+}
+.card-juego-cont-info{
+    margin-top: 1rem;
+}
+.carrito{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+.carrito-btn{
+    background-color: #fff;
+    border: solid 1px #081581;
+    padding: 0 20px;
+}
+.carrito-comprar{
+    background-color: #081581;;
+    border: solid 1px #081581;
+    padding: 0 10px;
+    color: #fff;
+    padding: 0 30px;
 }

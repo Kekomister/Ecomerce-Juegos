@@ -39,13 +39,19 @@ abrirCerrarModalDeLog():void{
 
 //funcion de log
 loguear():void{
- this.users.Login(this.capturarContrasenia,this.capturarMail)
- if (this.users.getEstadoLog()) {
+  this.users.Login(this.capturarContrasenia,this.capturarMail)
+  if (this.users.getEstadoLog()) {
   this.abrirCerrarModalDeLog()
   this.estadLog = this.users.getEstadoLog()
  }else{
   console.log("error");
  }
+  // if (this.userPrueba.mail === this.capturarMail && this.userPrueba.contraseña === this.capturarContrasenia) {
+  //   this.abrirCerrarModalDeLog()
+  //   this.estadLog = true
+  // }else{
+  //   //manejo de mail o contraseña incorrecto
+  // }
 }
 
 ngOnInit() {
