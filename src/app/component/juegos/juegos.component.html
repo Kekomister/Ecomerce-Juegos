@@ -2,7 +2,6 @@
   <!-- slice sirve para que el for vaya desde el indice cero hasta el requerido (por defaul ene ste caaso en 6), pero esta dependendiente del input osea ques e pasa de padre a hijo -->
   <div *ngFor="let juego of juegos.slice(0, indiceRecorrido); let i = index">
     <article class="card-juego">
-    <article class="card-juego">
       <img
       (click)="verDetalle(juego)"
         src="{{ juego.imagenes }}"
@@ -10,7 +9,6 @@
         class="card-juego-img"
         (click)="verDetalle(juego)"
       />
-      <div class="card-juego-cont-info" (click)="verDetalle(juego)">
       <div class="card-juego-cont-info" (click)="verDetalle(juego)">
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency }}</p>
@@ -41,7 +39,7 @@
         class="card-juego-img"
         (click)="verDetalle(juego)"
       />
-      <div class="card-juego-cont-info" (click)="verDetalle(juego)">
+  
       <div class="card-juego-cont-info" (click)="verDetalle(juego)">
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency }}</p>
