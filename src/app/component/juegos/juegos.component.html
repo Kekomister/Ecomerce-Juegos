@@ -1,13 +1,14 @@
 <section class="contenedor-juegos" *ngIf="juegosElegidos.length == 0">
   <!-- slice sirve para que el for vaya desde el indice cero hasta el requerido (por defaul ene ste caaso en 6), pero esta dependendiente del input osea ques e pasa de padre a hijo -->
   <div *ngFor="let juego of juegos.slice(0, indiceRecorrido); let i = index">
-    <article class="card-juego" (click)="verDetalle(juego)">
+    <article class="card-juego">
       <img
         src="{{ juego.imagenes }}"
         alt="img_{{ i }}"
         class="card-juego-img"
+        (click)="verDetalle(juego)"
       />
-      <div class="card-juego-cont-info">
+      <div class="card-juego-cont-info" (click)="verDetalle(juego)">
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency }}</p>
         <p>Generos : {{ juego.genero }}</p>
@@ -29,17 +30,22 @@
       let i = index
     "
   >
-    <article class="card-juego" (click)="verDetalle(juego)">
+    <article class="card-juego">
       <img
         src="{{ juego.imagenes }}"
         alt="img_{{ i }}"
         class="card-juego-img"
+        (click)="verDetalle(juego)"
       />
-      <div class="card-juego-cont-info">
+      <div class="card-juego-cont-info" (click)="verDetalle(juego)">
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency }}</p>
         <p>Generos : {{ juego.genero }}</p>
         Consolas : {{ juego.consolas }}
+      </div>
+      <div class="carrito">
+        <button class="carrito-btn"><i class='bx bx-cart'></i></button>
+        <button class="carrito-comprar">Comprar</button>
       </div>
     </article>
   </div>
