@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CarritoService } from 'src/app/Services/carrito.service';
+import { UsuariosService } from 'src/app/Services/usuarios.service';
 import { Juego } from 'src/app/models/juego.model';
 
 @Component({
@@ -13,6 +15,16 @@ export class DetalleComponent implements OnInit{
 
   juego: Juego | undefined;
 
+  constructor(private route: ActivatedRoute, private router : Router, private users : UsuariosService, private carrito : CarritoService) { };
+
+  ngOnInit() {
+    // para recibir nombre al moverse de pagina hacia esta (detalle)
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('value');
+      this.nombre = String(id);
+    })
+  }
+
   reciboJuegos(js : Juego[]){
     for(let i = 0; i < js.length; i++){
       if(js[i].nombre == this.nombre){
@@ -21,13 +33,29 @@ export class DetalleComponent implements OnInit{
     }
   }
 
-  constructor(private route: ActivatedRoute) { };
+  corroborar(): boolean {
+    let logeado = false;
+    if (this.users.getEstadoLog()) {
+      return true;
+    }
+    return logeado;
+  }
 
-  ngOnInit() {
-    // para recibir nombre al moverse de pagina hacia esta (detalle)
-    this.route.paramMap.subscribe((params) => {
-      const id = params.get('value');
-      this.nombre = String(id);
-    })
+  agregar(j: Juego) {
+    if (this.corroborar()) {
+      this.carrito.AgregarItem(j);
+      console.log(this.carrito.getCarrito());
+    } else {
+      this.users.verModal = true;
+    }
+  }
+
+  comprar(j: Juego) {
+    if (this.corroborar()) {
+      this.agregar(j);
+      this.router.navigate(['/compra']);
+    } else {
+      this.users.verModal = true;
+    }
   }
 }

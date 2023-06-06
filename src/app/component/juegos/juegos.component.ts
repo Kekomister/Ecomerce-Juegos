@@ -241,7 +241,7 @@ export class JuegosComponent {
     },
   ];
 
-  constructor(private router: Router, private cto: CarritoService, private users: UsuariosService) { }
+  constructor(private router: Router, private carrito: CarritoService, private users: UsuariosService) { }
 
   verDetalle(j: Juego) {
     this.router.navigate(['/detalle', j.nombre]);
@@ -266,9 +266,8 @@ export class JuegosComponent {
 
   agregar(j: Juego) {
     if (this.corroborar()) {
-      this.cto.AgregarItem(j);
-      alert("Se ha agregado el juego " + j.nombre);
-      console.log(this.cto.getCarrito());
+      this.carrito.AgregarItem(j);
+      console.log(this.carrito.getCarrito());
     } else {
       this.users.verModal = true;
     }
@@ -276,8 +275,10 @@ export class JuegosComponent {
 
   comprar(j: Juego) {
     if (this.corroborar()) {
-
+      this.agregar(j);
+      this.router.navigate(['/compra']);
     } else {
+      this.users.verModal = true;
     }
   }
 }
