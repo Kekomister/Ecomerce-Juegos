@@ -3,11 +3,10 @@
   <div *ngFor="let juego of juegos.slice(0, indiceRecorrido); let i = index">
     <article class="card-juego">
       <img
-      (click)="verDetalle(juego)"
+        (click)="verDetalle(juego)"
         src="{{ juego.imagenes }}"
         alt="img_{{ i }}"
         class="card-juego-img"
-        (click)="verDetalle(juego)"
       />
       <div class="card-juego-cont-info" (click)="verDetalle(juego)">
         <p>{{ juego.nombre }}</p>
@@ -16,8 +15,12 @@
         Consolas : {{ juego.consolas }}
       </div>
       <div class="carrito">
-        <button (click)="agregar(juego)" class="carrito-btn"><i class='bx bx-cart'></i></button>
-        <button (click)="comprar(juego)" class="carrito-comprar">Comprar</button>
+        <button (click)="agregar(juego)" class="carrito-btn">
+          <i class="bx bx-cart"></i>
+        </button>
+        <button (click)="comprar(juego)" class="carrito-comprar">
+          Comprar
+        </button>
       </div>
     </article>
   </div>
@@ -31,15 +34,14 @@
       let i = index
     "
   >
-    <article class="card-juego" >
+    <article class="card-juego">
       <img
-      (click)="verDetalle(juego)"
+        (click)="verDetalle(juego)"
         src="{{ juego.imagenes }}"
         alt="img_{{ i }}"
         class="card-juego-img"
-        (click)="verDetalle(juego)"
       />
-  
+
       <div class="card-juego-cont-info" (click)="verDetalle(juego)">
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency }}</p>
@@ -47,8 +49,12 @@
         Consolas : {{ juego.consolas }}
       </div>
       <div class="carrito">
-        <button (click)="agregar(juego)" class="carrito-btn"><i class='bx bx-cart'></i></button>
-        <button (click)="comprar(juego)" class="carrito-comprar">Comprar</button>
+        <button (click)="agregar(juego)" class="carrito-btn">
+          <i class="bx bx-cart"></i>
+        </button>
+        <button (click)="comprar(juego)" class="carrito-comprar">
+          Comprar
+        </button>
       </div>
     </article>
   </div>
