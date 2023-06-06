@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user.models';
 export class HeaderComponent {
   verModal: boolean = false
   estadLog: boolean = false
-  textoBuscar : string = "";
+  textoBuscar : string = " ";
   userPrueba: User = new User ("usuario" , "usuario@gmail.com" , "usuario")
   
   capturarContrasenia: string | undefined;
