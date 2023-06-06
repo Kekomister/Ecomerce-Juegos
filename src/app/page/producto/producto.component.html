@@ -13,7 +13,7 @@
             <div class="accordion-body">
               <span class="barra_izquierda" (click) = "reset()"> Cualquier consola </span>
               <div *ngFor="let consola of consolas">
-                <span class="barra_izquierda" (click)="consolaElegida(consola)"> {{consola}} </span>
+                <span class="barra_izquierda" (click)="llenarJuegosElegidos('consola',consola)"> {{consola}} </span>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
                 <span class="barra_izquierda" (click) = "reset()"> Cualquier precio </span>
               </div>
               <div *ngFor="let precio of precios">
-                <span class="barra_izquierda" (click)="precioElegido(precio)"> De ${{precio}} </span>
+                <span class="barra_izquierda" (click)="llenarJuegosElegidos('precio',precio)"> De ${{precio}} </span>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
             <div class="accordion-body">
               <span class="barra_izquierda" (click) = "reset()"> Cualquier año </span>
               <div *ngFor="let anio of anios">
-                <span class="barra_izquierda" (click)="anioElegido(anio)"> {{anio}} </span>
+                <span class="barra_izquierda" (click)="llenarJuegosElegidos('anio',anio)"> {{anio}} </span>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@
                 <span class="barra_izquierda" (click) = "reset()"> Cualquier genero </span>
               </div>
               <div *ngFor="let genero of generos">
-                <span class="barra_izquierda" (click)="generoElegido(genero)"> {{genero}} </span>
+                <span class="barra_izquierda" (click)="llenarJuegosElegidos('genero',genero)"> {{genero}} </span>
               </div>
             </div>
           </div>
@@ -85,9 +85,9 @@
           <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <span class="barra_izquierda" (click) = "reset()"> Cualquier requisito </span>
-              <span class="barra_izquierda" (click) = "filtrarPorRequisito('alto')"> Altos </span>
-              <span class="barra_izquierda" (click) = "filtrarPorRequisito('medio')"> Medios </span>
-              <span class="barra_izquierda" (click) = "filtrarPorRequisito('bajo')"> Bajos </span>
+              <span class="barra_izquierda" (click) = "llenarJuegosElegidos('requisito','alto')"> Altos </span>
+              <span class="barra_izquierda" (click) = "llenarJuegosElegidos('requisito','medio')"> Medios </span>
+              <span class="barra_izquierda" (click) = "llenarJuegosElegidos('requisito','bajo')"> Bajos </span>
             </div>
           </div>
         </div>
