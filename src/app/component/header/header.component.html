@@ -38,8 +38,12 @@
       <div class="header-login">
         <i class="bx bx-log-in"></i>
         <h3 (click)="abrirCerrarModalDeLog()" *ngIf="!estadLog">Ingresar</h3>
+        <!-- <h3 (click)="abrirCerrarModalDeLog()" *ngIf="users.getEstadoLog()">Ingresar</h3> -->
         <h3  *ngIf="estadLog">Hola {{userPrueba.nombreUsuario}}</h3>
       </div>
+
+      <i class='bx bx-cart' *ngIf="estadLog"></i>
+  
     </div>
 
     <nav class="header-nav">
