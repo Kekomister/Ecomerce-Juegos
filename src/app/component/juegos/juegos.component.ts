@@ -252,5 +252,9 @@ export class JuegosComponent {
     this.envioJuegos.emit(this.juegos);
   }
 
+  comprar(){
+    console.log("W");
+    
+  }
   constructor(private router : Router){}
 }
