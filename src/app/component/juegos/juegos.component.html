@@ -16,8 +16,8 @@
         Consolas : {{ juego.consolas }}
       </div>
       <div class="carrito">
-        <button class="carrito-btn"><i class='bx bx-cart'></i></button>
-        <button (click)="comprar()" class="carrito-comprar">Comprar</button>
+        <button (click)="agregar(juego)" class="carrito-btn"><i class='bx bx-cart'></i></button>
+        <button (click)="comprar(juego)" class="carrito-comprar">Comprar</button>
       </div>
     </article>
   </div>
@@ -47,8 +47,8 @@
         Consolas : {{ juego.consolas }}
       </div>
       <div class="carrito">
-        <button class="carrito-btn"><i class='bx bx-cart'></i></button>
-        <button class="carrito-comprar">Comprar</button>
+        <button (click)="agregar(juego)" class="carrito-btn"><i class='bx bx-cart'></i></button>
+        <button (click)="comprar(juego)" class="carrito-comprar">Comprar</button>
       </div>
     </article>
   </div>

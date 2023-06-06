@@ -10,6 +10,7 @@ import { ContactoComponent } from './page/contacto/contacto.component';
 import { HeaderComponent } from './component/header/header.component';
 import { JuegosComponent } from './component/juegos/juegos.component';
 import { DetalleComponent } from './page/detalle/detalle.component';
+import { VerCompraComponent } from './page/ver-compra/ver-compra.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DetalleComponent } from './page/detalle/detalle.component';
     HeaderComponent,
     JuegosComponent,
     DetalleComponent,
+    VerCompraComponent,
   ],
   imports: [
     BrowserModule,

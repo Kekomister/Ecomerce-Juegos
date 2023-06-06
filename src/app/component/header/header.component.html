@@ -42,7 +42,10 @@
         <h3  *ngIf="estadLog">Hola {{userPrueba.nombreUsuario}}</h3>
       </div>
 
-      <i class='bx bx-cart' *ngIf="estadLog"></i>
+      <div class="contenedor-carrito" *ngIf="!estadLog">
+        <i class='bx bx-cart' (click) = "irCompra()"></i>
+        <p class="contenedor-carrito-length" (click) = "verCarritoRapido()"> {{carrito.getCarrito().length}}</p>
+      </div>
   
     </div>
 
@@ -54,7 +57,7 @@
   </header>
 </div>
 
-<section class="sombra" *ngIf="verModal">
+<section class="sombra" *ngIf="users.verModal">
   <div class="form-login">
     <h2 class="cerrar" (click)="abrirCerrarModalDeLog()">X</h2>
     <div class="mb-3">

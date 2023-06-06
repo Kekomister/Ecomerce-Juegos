@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { CarritoService } from 'src/app/Services/carrito.service';
+import { UsuariosService } from 'src/app/Services/usuarios.service';
 import { Juego } from 'src/app/models/juego.model';
 
 
@@ -10,7 +12,7 @@ import { Juego } from 'src/app/models/juego.model';
   styleUrls: ['./juegos.component.css'],
 })
 export class JuegosComponent {
-  @Output() envioJuegos : EventEmitter<Juego[]> = new EventEmitter<Juego[]>();
+  @Output() envioJuegos: EventEmitter<Juego[]> = new EventEmitter<Juego[]>();
   @Input() indiceRecorrido: number = 6;
 
   // variable que guarda todos los juegos que cumplan la condicion elegida en la opcion izquierda
@@ -239,22 +241,43 @@ export class JuegosComponent {
     },
   ];
 
-  verDetalle(j : Juego){
-    this.router.navigate(['/detalle',j.nombre]);
+  constructor(private router: Router, private cto: CarritoService, private users: UsuariosService) { }
+
+  verDetalle(j: Juego) {
+    this.router.navigate(['/detalle', j.nombre]);
   }
 
-  mostrar(juego:any){
+  mostrar(juego: any) {
     console.log(juego.nombre);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     // envio el array de juegos al que lo llame
     this.envioJuegos.emit(this.juegos);
   }
 
-  comprar(){
-    console.log("W");
-    
+  corroborar(): boolean {
+    let logeado = false;
+    if (this.users.getEstadoLog()) {
+      return true;
+    }
+    return logeado;
   }
-  constructor(private router : Router){}
+
+  agregar(j: Juego) {
+    if (this.corroborar()) {
+      this.cto.AgregarItem(j);
+      alert("Se ha agregado el juego " + j.nombre);
+      console.log(this.cto.getCarrito());
+    } else {
+      this.users.verModal = true;
+    }
+  }
+
+  comprar(j: Juego) {
+    if (this.corroborar()) {
+
+    } else {
+    }
+  }
 }
