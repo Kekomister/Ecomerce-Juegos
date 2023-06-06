@@ -42,6 +42,9 @@
 .btn-light {
   padding: 1px 20px;
 }
+.bx-cart{
+  font-size: 40px;
+}
 .header {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/Services/usuarios.service';
 import { User } from 'src/app/models/user.models';
 
 @Component({
@@ -9,12 +10,15 @@ import { User } from 'src/app/models/user.models';
 })
 export class HeaderComponent {
   verModal: boolean = false
-  estadLog: boolean = false
   textoBuscar : string = "";
   userPrueba: User = new User ("usuario" , "usuario@gmail.com" , "usuario")
   
   capturarContrasenia: string | undefined;
   capturarMail: string | undefined;
+
+
+
+  constructor(private router : Router, private users : UsuariosService){}
 
 
 
@@ -27,8 +31,6 @@ export class HeaderComponent {
     this.router.navigate(['']);
   }
 
-constructor(private router : Router){}
-
 //funcion para abril modal de log
 abrirCerrarModalDeLog():void{
   this.verModal = !this.verModal
@@ -36,12 +38,15 @@ abrirCerrarModalDeLog():void{
 
 
 //funcion de log
-loguear():void{ 
-  if (this.userPrueba.mail === this.capturarMail && this.userPrueba.contraseña === this.capturarContrasenia) {
-    this.abrirCerrarModalDeLog()
-    this.estadLog = true
-  }else{
-    //manejo de mail o contraseña incorrecto
+loguear():void{
+  if(this.users.Login(this.capturarContrasenia,this.capturarMail)){
+    this.abrirCerrarModalDeLog();
   }
+  // if (this.userPrueba.mail === this.capturarMail && this.userPrueba.contraseña === this.capturarContrasenia) {
+  //   this.abrirCerrarModalDeLog()
+  //   this.estadLog = true
+  // }else{
+  //   //manejo de mail o contraseña incorrecto
+  // }
 }
 }

@@ -25,6 +25,6 @@ export class Juego {
     this.consolas = consolas;
     this.genero = genero;
     this.anioRelease = anio;
-    this.requisitos = requisitos
+    this.requisitos = requisitos;
   }
 }

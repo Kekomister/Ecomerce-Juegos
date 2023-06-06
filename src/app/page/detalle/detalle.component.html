@@ -6,9 +6,14 @@
       
         <img src="{{ juego.imagenes }}" alt="img_1" class="card-juego-img"/>
         <p>{{ juego.nombre }}</p>
+        <p>{{ juego.descripcion }}</p>
         <p>Precio : {{ juego.precio | currency}}</p>
         <p>Generos : {{ juego.genero }}</p>
-        Consolas : {{ juego.consolas }}
+        <p>Año de salida : {{ juego.anioRelease}}</p>
+        <p>Consolas : {{ juego.consolas }}</p>
+        <p>Requisitos : {{ juego.requisitos }}</p>
+        <button> Comprar </button>
+        <button> Añadir a carrito </button>
 
     </article>
 </div>

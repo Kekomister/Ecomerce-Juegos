@@ -40,6 +40,9 @@
         <h3 (click)="abrirCerrarModalDeLog()" *ngIf="!estadLog">Ingresar</h3>
         <h3  *ngIf="estadLog">Hola {{userPrueba.nombreUsuario}}</h3>
       </div>
+
+      <i class='bx bx-cart' *ngIf="estadLog"></i>
+
     </div>
 
     <nav class="header-nav">
