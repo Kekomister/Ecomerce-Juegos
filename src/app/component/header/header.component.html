@@ -41,7 +41,7 @@
         <p>
           <button class="contenedor-carrito-length" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#items" aria-controls="items"
             (click)="abrirCarritoRapido()">
-            {{carrito.getCarrito().length}}
+            {{items.length}}
           </button>
         </p>
         <div>
@@ -54,11 +54,11 @@
                     <td *ngFor="let titulo of titulosItems"> {{titulo}} </td>
                   </tr>
                 </thead>
-                <tbody *ngFor="let item of itemsNom, let indice = index">
+                <tbody *ngFor="let item of items, let indice = index">
                   <tr>
-                    <td> {{itemsNom[indice]}} </td>
-                    <td> {{itemsNum[indice]}} </td>
-                    <td> {{itemsPrecio[indice]}} </td>
+                    <td> {{item.nombre}} </td>
+                    <td> {{item.cantidad}} </td>
+                    <td> {{item.precio}} </td>
                   </tr>
                 </tbody>
               </table>

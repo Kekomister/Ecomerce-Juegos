@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarritoService } from 'src/app/Services/carrito.service';
+import { BdJuegosService } from 'src/app/Services/bd-juegos.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 import { Juego } from 'src/app/models/juego.model';
 
@@ -15,7 +15,7 @@ export class DetalleComponent implements OnInit{
 
   juego: Juego | undefined;
 
-  constructor(private route: ActivatedRoute, private router : Router, private users : UsuariosService, private carrito : CarritoService) { };
+  constructor(private route: ActivatedRoute, private router : Router, private users : UsuariosService, private bd : BdJuegosService) { };
 
   ngOnInit() {
     // para recibir nombre al moverse de pagina hacia esta (detalle)
@@ -42,12 +42,7 @@ export class DetalleComponent implements OnInit{
   }
 
   agregar(j: Juego) {
-    if (this.corroborar()) {
-      this.carrito.AgregarItem(j);
-      console.log(this.carrito.getCarrito());
-    } else {
-      this.users.verModal = true;
-    }
+    this.bd.agregarJuegoCarrito(j);
   }
 
   comprar(j: Juego) {

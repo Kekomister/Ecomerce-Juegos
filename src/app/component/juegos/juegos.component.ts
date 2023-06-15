@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { BdJuegosService } from 'src/app/Services/bd-juegos.service';
-import { CarritoService } from 'src/app/Services/carrito.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 import { Juego } from 'src/app/models/juego.model';
 
@@ -242,7 +241,7 @@ export class JuegosComponent {
     },
   ];
 
-  constructor(private router: Router, private carrito: CarritoService, private users: UsuariosService, private bd : BdJuegosService) { }
+  constructor(private router: Router, private users: UsuariosService, private bd : BdJuegosService) { }
 
   verDetalle(j: Juego) {
     this.router.navigate(['/detalle', j.nombre]);
@@ -267,11 +266,6 @@ export class JuegosComponent {
 
   agregar(j: Juego) {
     this.bd.agregarJuegoCarrito(j);
-    // if (this.corroborar()) {
-    //   this.carrito.AgregarItem(j);
-    // } else {
-    //   this.users.verModal = true;
-    // }
   }
 
   comprar(j: Juego) {

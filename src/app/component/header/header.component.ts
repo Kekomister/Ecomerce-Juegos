@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { CarritoService } from 'src/app/Services/carrito.service';
+import { BdJuegosService } from 'src/app/Services/bd-juegos.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 import { User } from 'src/app/models/user.models';
 
@@ -23,12 +23,12 @@ export class HeaderComponent implements OnInit, OnChanges{
 //     precioTotal : 0
 // }];
 
-itemsNom : string[] = [];
-itemsNum : number[] = [];
-itemsPrecio : number[] = [];
 carritoRapidoView : boolean = false;
+items : any[] = this.bd.getCarrito();
 
-  constructor(private router : Router, public users : UsuariosService, public carrito : CarritoService){}
+carritoCant : number = 0;
+
+  constructor(private router : Router, public users : UsuariosService, private bd : BdJuegosService){}
 
   ngOnInit() {
     this.estadLog = this.users.getEstadoLog();
@@ -77,29 +77,7 @@ irCompra(){
 }
 
 verCarritoRapido(){
-  this.itemsNom = [];
-  this.itemsNum = [];
-  this.itemsPrecio = [];
-
-  let c = this.carrito.getCarrito();
-  
-  for(let i = 0; i < c.length; i++){
-    let yaEsta = false;
-    for(let j = 0; j < this.itemsNom.length; j++){
-      if(c[i].nombre == this.itemsNom[j]){
-        this.itemsNum[j]++;
-        this.itemsPrecio[j] += Number(c[i].precio);
-        yaEsta = true;
-      }
-    }
-    if(!yaEsta){
-      this.itemsNom.push(c[i].nombre);
-      this.itemsNum.push(1);
-      this.itemsPrecio.push(Number(c[i].precio));
-    }
-  }
-  console.log(this.itemsNom);
-  
+  this.carritoCant = this.bd.getCarritoCant();
 }
 
 abrirCarritoRapido(){

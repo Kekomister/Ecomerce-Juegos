@@ -236,6 +236,10 @@ export class BdJuegosService {
     return this.contenedorJuegos;
   }
 
+  getCarrito():any[]{
+    return this.newCarrito;
+  }
+
   filtrarJuegosPor(caracteristica: string, opt: string):any[]{
     this.contenedorJuegos = []
     switch (caracteristica) {
@@ -277,5 +281,14 @@ export class BdJuegosService {
         });
       }
     }
+    console.log(this.newCarrito);
+  }
+
+  getCarritoCant(){
+    let cant = 0;
+    for(let i = 0; i < this.newCarrito.length; i++){
+      cant += this.newCarrito[i].cantidad;
+    }
+    return cant;
   }
 }
