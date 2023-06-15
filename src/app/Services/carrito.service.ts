@@ -5,14 +5,14 @@ import { Juego } from '../models/juego.model';
   providedIn: 'root'
 })
 export class CarritoService {
-
+  
   private carrito : Juego[] = [];
 
   constructor() { }
 
   
   public getCarrito() : Juego[] {
-    return this.carrito;
+    return this.carrito
   }
   
   

@@ -53,6 +53,52 @@
   width: 70%;
   margin: 0 auto;
 }
+.contenedor-juegos{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.card-juego{
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, .1);
+  border-radius: 15px;
+  height: 600px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.card-juego-img{
+  border-radius: 15px 15px 0px 0px;
+  width: 350px;
+  height: 350px;
+}
+.card-juego-cont-info{
+  margin-top: 1rem;
+}
+.carrito{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  position: absolute;
+  bottom: 10px;
+}
+.carrito-btn{
+  background-color: #fff;
+  border: solid 1px #081581;
+  padding: 0 20px;
+}
+.carrito-comprar{
+  background-color: #081581;;
+  border: solid 1px #081581;
+  padding: 0 10px;
+  color: #fff;
+  padding: 0 30px;
+}
 @media (max-width: 480px) {
   .ancho-default {
     width: 90%;
