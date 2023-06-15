@@ -256,22 +256,26 @@ export class BdJuegosService {
   agregarJuegoCarrito(j : any):void{
     let yaEsta = false;
     if(this.newCarrito.length == 0){
-      this.newCarrito.push(j);
-      this.newCarrito = [{
-        ...this.newCarrito,
+      this.newCarrito.push({
+        nombre : j.nombre,
+        precio : j.precio,
         cantidad : 1
-      } ]
+      });
     }else{
       for(let i = 0; i < this.newCarrito.length && !yaEsta; i++){
         if(this.newCarrito[i].nombre === j.nombre){
-          this.newCarrito[i][1]++;
+          this.newCarrito[i].cantidad += 1;
+          this.newCarrito[i].precio += j.precio;
           yaEsta = true;
         }
       }
       if(!yaEsta){
-        this.newCarrito.push(j);
+        this.newCarrito.push({
+          nombre : j.nombre,
+          precio : j.precio,
+          cantidad : 1
+        });
       }
     }
-    console.log(this.newCarrito);
   }
 }
