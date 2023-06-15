@@ -18,6 +18,11 @@
   background-color: #ff6347;
   display: flex;
 }
+
+img{
+  
+}
+
 .contenedor-carrito {
   width: 60%;
   display: grid;

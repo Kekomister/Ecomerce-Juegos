@@ -229,7 +229,7 @@ export class BdJuegosService {
   ];
 
   contenedorJuegos: any[] = this.juegos;
-  newCarrito: any = []
+  newCarrito: any = [];
   constructor() { }
 
   getJuegos():any[] {
@@ -253,7 +253,25 @@ export class BdJuegosService {
   }
 
 
-  // agregarJuegoCarrito():void{
-
-  // }
+  agregarJuegoCarrito(j : any):void{
+    let yaEsta = false;
+    if(this.newCarrito.length == 0){
+      this.newCarrito.push(j);
+      this.newCarrito = [{
+        ...this.newCarrito,
+        cantidad : 1
+      } ]
+    }else{
+      for(let i = 0; i < this.newCarrito.length && !yaEsta; i++){
+        if(this.newCarrito[i].nombre === j.nombre){
+          this.newCarrito[i][1]++;
+          yaEsta = true;
+        }
+      }
+      if(!yaEsta){
+        this.newCarrito.push(j);
+      }
+    }
+    console.log(this.newCarrito);
+  }
 }

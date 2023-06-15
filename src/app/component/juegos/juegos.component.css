@@ -21,7 +21,9 @@
     border-radius: 15px 15px 0px 0px;
     width: 350px;
     height: 350px;
+    object-fit: contain;
 }
+
 .card-juego-cont-info{
     margin-top: 1rem;
 }
