@@ -3,7 +3,7 @@ export class User {
     nombreUsuario: string | undefined;
     mail: string | undefined;
     contraseña: string | undefined
-      
+  
     constructor(
       nombreUser: string,
       mail: string,
@@ -11,6 +11,12 @@ export class User {
     ) {
       this.nombreUsuario = nombreUser,
       this.mail = mail,
-      this.contraseña = contra
+      this.contraseña = contra;
+  }
+
+  public vaciar(){
+    this.nombreUsuario = "",
+    this.mail = "",
+    this.contraseña = "";
   }
 }

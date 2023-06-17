@@ -10,7 +10,7 @@ import { Juego } from 'src/app/models/juego.model';
   styleUrls: ['./detalle.component.css']
 })
 export class DetalleComponent implements OnInit{
-  // nombre del juego que quiero ver los detalles
+
   nombre: string | undefined;
 
   juego: Juego | undefined;
@@ -18,14 +18,15 @@ export class DetalleComponent implements OnInit{
   constructor(private route: ActivatedRoute, private router : Router, private users : UsuariosService, private bd : BdJuegosService) { };
 
   ngOnInit() {
-    // para recibir nombre al moverse de pagina hacia esta (detalle)
     this.route.paramMap.subscribe((params) => {
       const id = params.get('value');
       this.nombre = String(id);
     })
+    this.reciboJuegos();
   }
 
-  reciboJuegos(js : Juego[]){
+  reciboJuegos(){
+    let js = this.bd.getJuegos();
     for(let i = 0; i < js.length; i++){
       if(js[i].nombre == this.nombre){
         this.juego = js[i];

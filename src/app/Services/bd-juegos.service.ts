@@ -131,7 +131,7 @@ export class BdJuegosService {
       id: 12,
       nombre: 'FIFA 22',
       descripcion: 'Descripción L',
-      precio: 82,
+      precio: 2980,
       consolas: ['PC', 'XboxOne', 'Xbox', 'PS4', 'PS5', 'Switch'],
       genero: ['Musical', 'Terror', 'Aventura'],
       anioRelease: 2021,
@@ -232,63 +232,142 @@ export class BdJuegosService {
   newCarrito: any = [];
   constructor() { }
 
-  getJuegos():any[] {
+  getJuegos(): any[] {
     return this.contenedorJuegos;
   }
 
-  getCarrito():any[]{
+  restaurarJuegos(){
+    this.contenedorJuegos = this.juegos;
+  }
+
+  getCarrito(): any[] {
     return this.newCarrito;
   }
 
-  filtrarJuegosPor(caracteristica: string, opt: string):any[]{
+  filtrarJuegosPor(caracteristica: string, opt: string): any[] {
     this.contenedorJuegos = []
+
     switch (caracteristica) {
-      case 'consola':
+
+      case "genero":
         for (let i = 0; i < this.juegos.length; i++) {
-          
-          
+          for (let j = 0; j < this.juegos[i].genero.length; j++) {
+            if (this.juegos[i].genero[j] == opt) {
+              this.contenedorJuegos.push(this.juegos[i]);
+            }
+          }
         }
         break;
-    
+
+      case "consola":
+        for (let i = 0; i < this.juegos.length; i++) {
+          for (let j = 0; j < this.juegos[i].consolas.length; j++) {
+            if (this.juegos[i].consolas[j] == opt) {
+              this.contenedorJuegos.push(this.juegos[i]);
+            }
+          }
+        }
+        break;
+
+      case "precio":
+        let inicio = this.rangoInicio(opt);
+        let fin = this.rangoFin(opt);
+
+        for (let i = 0; i < this.juegos.length; i++) {
+          let precio = Number(this.juegos[i].precio);
+          if (precio >= inicio && precio <= fin) {
+            this.contenedorJuegos.push(this.juegos[i]);
+          }
+        }
+        break;
+
+      case "anio":
+        for (let i = 0; i < this.juegos.length; i++) {
+          if (this.juegos[i].anioRelease == opt) {
+            this.contenedorJuegos.push(this.juegos[i]);
+          }
+        }
+        break;
+
+      case "requisito":
+        for (let i = 0; i < this.juegos.length; i++) {
+          if (this.juegos[i].requisitos?.toLocaleLowerCase() == opt) {
+            this.contenedorJuegos.push(this.juegos[i]);
+          }
+        }
+        break;
+
+      case "busqueda":
+        for (let i = 0; i < this.juegos.length; i++) {
+          if (this.juegos[i].nombre?.toLowerCase().includes(opt.toLowerCase())) {
+            this.contenedorJuegos.push(this.juegos[i]);
+          }
+        }
+        break;
+
       default:
+        alert("NO DEBERIA ENTRAR AQUI");
         break;
     }
     return this.contenedorJuegos;
   }
 
+  private rangoInicio(p: string): number {
+    let n = 0;
+    let precios = ["1000 - 2000", "2000 - 3000", "3000 - 4000", "4000 - 5000", "5000 - 6000"];
 
-  agregarJuegoCarrito(j : any):void{
+    for (let i = 0; i < precios.length; i++) {
+      if (precios[i] == p) {
+        // el formato que lo tengo en el array:
+        // [1000 - 2000]  EL 10 ME QUEDo FEO, PERO LO MOVI PARA QUE SEA MAS CLARO
+        // [0123456789 10]
+        let text = precios[i].substring(0, 5); // el segundo numero no es incluido (5)
+        n = Number(text);
+      }
+    }
+    return n;
+  }
+
+  private rangoFin(p: string): number {
+    let n = 0;
+    let precios = ["1000 - 2000", "2000 - 3000", "3000 - 4000", "4000 - 5000", "5000 - 6000"];
+
+    for (let i = 0; i < precios.length; i++) {
+      if (precios[i] == p) {
+        // el formato que lo tengo en el array: [1000 - 2000]
+        // [1000 - 2000]  EL 10 ME QUEDO FEO, PERO LO MOVI PARA QUE SEA MAS CLARO
+        // [0123456789 10]
+        let text = precios[i].substring(6, 11);  // el segundo numero no es incluido (11)
+        n = Number(text);
+      }
+    }
+    return n;
+  }
+
+  agregarJuegoCarrito(j: any): void {
     let yaEsta = false;
-    if(this.newCarrito.length == 0){
+    if (this.newCarrito.length == 0) {
       this.newCarrito.push({
-        nombre : j.nombre,
-        precio : j.precio,
-        cantidad : 1
+        nombre: j.nombre,
+        precio: j.precio,
+        cantidad: 1
       });
-    }else{
-      for(let i = 0; i < this.newCarrito.length && !yaEsta; i++){
-        if(this.newCarrito[i].nombre === j.nombre){
+    } else {
+      for (let i = 0; i < this.newCarrito.length && !yaEsta; i++) {
+        if (this.newCarrito[i].nombre === j.nombre) {
           this.newCarrito[i].cantidad += 1;
           this.newCarrito[i].precio += j.precio;
           yaEsta = true;
         }
       }
-      if(!yaEsta){
+      if (!yaEsta) {
         this.newCarrito.push({
-          nombre : j.nombre,
-          precio : j.precio,
-          cantidad : 1
+          nombre: j.nombre,
+          precio: j.precio,
+          cantidad: 1
         });
       }
     }
-    console.log(this.newCarrito);
   }
 
-  getCarritoCant(){
-    let cant = 0;
-    for(let i = 0; i < this.newCarrito.length; i++){
-      cant += this.newCarrito[i].cantidad;
-    }
-    return cant;
-  }
 }

@@ -12,12 +12,12 @@ export class InicioComponent implements OnInit{
     dos: 'assets/banner.jpg',
     tres: 'assets/bannerTres.jpg'
   }
-  misJuegos: any = []
+  misJuegos: any = [];
 
   constructor(private bdJuegos: BdJuegosService){}
 
 
   ngOnInit(): void {
-    this.misJuegos = this.bdJuegos.getJuegos()
+    this.misJuegos = this.bdJuegos.getJuegos();
   }
 }

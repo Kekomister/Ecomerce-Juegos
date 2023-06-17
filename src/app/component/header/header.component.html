@@ -28,9 +28,9 @@
         <button (click)="pasar()"> PASAR DE LARGO</button>
 
         <i class="bx bx-log-in"></i>
-        <h3 (click)="abrirCerrarModalDeLog()" *ngIf="!estadLog">Ingresar</h3>
+        <h3 (click)="abrirCerrarModalDeLog()" *ngIf="!estadLog"> Ingresar </h3>
         <!-- <h3 (click)="abrirCerrarModalDeLog()" *ngIf="users.getEstadoLog()">Ingresar</h3> -->
-        <h3 *ngIf="estadLog">Hola {{userPrueba.nombreUsuario}}</h3>
+        <h3 (click)="loguearAfuera()" *ngIf="estadLog"> Hola {{userPrueba.nombreUsuario}}</h3>
       </div>
 
       <div class="contenedor-carrito" *ngIf="estadLog">
@@ -41,7 +41,7 @@
         <p>
           <button class="contenedor-carrito-length" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#items" aria-controls="items"
             (click)="abrirCarritoRapido()">
-            {{items.length}}
+            {{carritoCant}}
           </button>
         </p>
         <div>
@@ -61,6 +61,7 @@
                     <td> {{item.precio}} </td>
                   </tr>
                 </tbody>
+                <tbody> <button class="boton-ver-detalle" (click) = "irCompra()"> Ver en mas detalle </button> </tbody>
               </table>
 
             </div>

@@ -67,7 +67,9 @@
   left: -250px;
 }
 
-.card{
+.ver-carrito-detalle{
+  display: flex;
+  align-self: center;
 }
 
 .header {

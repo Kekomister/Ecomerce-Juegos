@@ -12,12 +12,16 @@ export class UsuariosService {
 
   constructor() { }
 
-  Login(capContra : string | undefined, capMail : string | undefined) {
+  public Login(capContra : string | undefined, capMail : string | undefined) {
     if (this.userPrueba.mail === capMail && this.userPrueba.contraseña === capContra) {
       this.estadLog = true;
     }else{
       //manejo de mail o contraseña incorrecto
     } 
+  }
+
+  public logOut(){
+    this.estadLog = false;
   }
 
   public getEstadoLog() : boolean {

@@ -57,30 +57,7 @@
 
     <div class="section-productos-contenedor-prodcutos">
       <div class="ancho">
-        <!-- <app-juegos></app-juegos> -->
-        <section class="contenedor-juegos">
-          <div *ngFor="let juego of misJuegos.slice(0, 9); let i = index">
-            <article class="card-juego">
-              <img
-                src="{{ juego.imagenes }}"
-                alt="img_{{ i }}"
-                class="card-juego-img"
-              />
-              <div class="card-juego-cont-info">
-                <p>{{ juego.nombre }}</p>
-                <p>Precio : {{ juego.precio | currency }}</p>
-                <p>Generos : {{ juego.genero }}</p>
-                Consolas : {{ juego.consolas }}
-              </div>
-              <div class="carrito">
-                <button class="carrito-btn">
-                  <i class="bx bx-cart"></i>
-                </button>
-                <button class="carrito-comprar">Comprar</button>
-              </div>
-            </article>
-          </div>
-        </section>
+        <app-juegos [indiceRecorrido]="6" [juegosElegidos]="misJuegos"></app-juegos>
       </div>
     </div>
   </section>
