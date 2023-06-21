@@ -23,6 +23,15 @@
   align-items: center;
   margin: 0 auto;
 }
+.contenedor-info-carrito button{
+  width: 250px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  background-color: #081581;;
+  border: solid 1px #081581;
+  padding: 0 10px;
+  color: #fff;
+}
 .logo {
   width: 200px;
   cursor: pointer;
@@ -65,6 +74,7 @@
   position: absolute;
   top: 70px;
   left: -250px;
+  padding-bottom: 1rem;
 }
 
 .ver-carrito-detalle{

@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit{
   capturarContrasenia: string | undefined;
   capturarMail: string | undefined;
 
-  titulosItems: string[] = ["Nombre", "Cantidad", "Precio Total"];
+  titulosItems: string[] = ["Nombre", "Cantidad", "Precio Total", "Eliminar"];
 
   carritoRapidoView: boolean = false;
   items: any[] = this.bd.getCarrito();
@@ -91,6 +91,12 @@ export class HeaderComponent implements OnInit{
       cant += this.items[i].cantidad;
     }
     return cant;
+  }
+
+  eliminar(index: number, item: any): void{
+    this.bd.sacarJuegoCarrito(index, item)
+    console.log(item);
+    
   }
 
 }

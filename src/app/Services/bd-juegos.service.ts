@@ -370,4 +370,12 @@ export class BdJuegosService {
     }
   }
 
+  sacarJuegoCarrito(index: number, item: any): void {
+    if (item.cantidad > 1) {
+      this.newCarrito[index].cantidad--
+    }else{
+      this.newCarrito.splice(index, 1)
+    }
+  }
+
 }

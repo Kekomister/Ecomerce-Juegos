@@ -44,7 +44,7 @@
             {{carritoCant}}
           </button>
         </p>
-        <div>
+  
           <div class="contenedor-info-carrito" id="items">
             <div class="card" style="width: 500px;" *ngIf="carritoRapidoView">
 
@@ -59,14 +59,15 @@
                     <td> {{item.nombre}} </td>
                     <td> {{item.cantidad}} </td>
                     <td> {{item.precio}} </td>
+                    <td style="color: tomato;" (click)="eliminar(indice, item)"> x </td>
                   </tr>
                 </tbody>
-                <tbody> <button class="boton-ver-detalle" (click) = "irCompra()"> Ver en mas detalle </button> </tbody>
+                 
               </table>
-
+              <button class="boton-ver-detalle" (click) = "irCompra()"> Ir a la compra </button> 
             </div>
           </div>
-        </div>
+   
 
       </div>
 
