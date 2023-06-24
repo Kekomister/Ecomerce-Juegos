@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -230,6 +231,7 @@ export class BdJuegosService {
 
   contenedorJuegos: any[] = this.juegos;
   newCarrito: any = [];
+  cantidadItems : BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor() { }
 
@@ -243,6 +245,20 @@ export class BdJuegosService {
 
   getCarrito(): any[] {
     return this.newCarrito;
+  }
+
+  proximoValor(valor : number) : void {
+    this.cantidadItems.next(this.cantidadItems.getValue() + valor);
+  }
+
+  restarValor(valor : number) : void {
+    let numero = this.cantidadItems.getValue();
+    if((numero-valor) < 0){
+      numero = 0;
+    } else {
+      numero = numero - valor;
+    }
+    this.cantidadItems.next(numero);
   }
 
   filtrarJuegosPor(caracteristica: string, opt: string): any[] {
@@ -373,10 +389,11 @@ export class BdJuegosService {
 
   sacarJuegoCarrito(index: number, item: any): void {
     if (item.cantidad > 1) {
-      this.newCarrito[index].cantidad--
+      this.newCarrito[index].cantidad--;
     }else{
-      this.newCarrito.splice(index, 1)
+      this.newCarrito.splice(index, 1);
     }
+    this.restarValor(1);
   }
 
 }

@@ -28,6 +28,11 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit() {
     this.estadLog = this.users.getEstadoLog();
+    this.bd.cantidadItems.subscribe(
+      (nuevoValor) => {
+        this.carritoCant = nuevoValor;
+      }
+    )
   }
 
   buscar(): void {
@@ -64,15 +69,9 @@ export class HeaderComponent implements OnInit{
     this.router.navigate(['/compra']);
   }
 
-  verCarritoRapido() {
-    this.carritoCant = this.getCant();
-  }
 
   abrirCarritoRapido() {
     this.setCarritoRapidoView();
-    if (this.carritoRapidoView) {
-      this.verCarritoRapido();
-    }
   }
 
   setCarritoRapidoView() {
@@ -86,16 +85,8 @@ export class HeaderComponent implements OnInit{
     this.users.verModal = false;
   }
 
-  getCant() {
-    let cant = 0;
-    for (let i = 0; i < this.items.length; i++) {
-      cant += this.items[i].cantidad;
-    }
-    return cant;
-  }
-
   eliminar(index: number, item: any): void{
-    this.bd.sacarJuegoCarrito(index, item)
+    this.bd.sacarJuegoCarrito(index, item);
     console.log(item);
   }
 

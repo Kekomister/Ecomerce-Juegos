@@ -41,6 +41,7 @@ export class JuegosComponent implements OnInit{
   agregar(j: Juego) {
     if (this.corroborar()) {
       this.bd.agregarJuegoCarrito(j);
+      this.bd.proximoValor(1);
     } else {
       this.users.verModal = true;
     }
