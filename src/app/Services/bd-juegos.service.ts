@@ -230,6 +230,7 @@ export class BdJuegosService {
 
   contenedorJuegos: any[] = this.juegos;
   newCarrito: any = [];
+
   constructor() { }
 
   getJuegos(): any[] {
@@ -245,7 +246,7 @@ export class BdJuegosService {
   }
 
   filtrarJuegosPor(caracteristica: string, opt: string): any[] {
-    this.contenedorJuegos = []
+    this.contenedorJuegos = [];
 
     switch (caracteristica) {
 

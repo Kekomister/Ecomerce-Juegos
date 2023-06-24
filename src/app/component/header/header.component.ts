@@ -10,6 +10,7 @@ import { User } from 'src/app/models/user.models';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
+
   textoBuscar: string = "";
   userPrueba: User = new User("usuario", "usuario@gmail.com", "usuario");
   estadLog: boolean = false
@@ -96,7 +97,6 @@ export class HeaderComponent implements OnInit{
   eliminar(index: number, item: any): void{
     this.bd.sacarJuegoCarrito(index, item)
     console.log(item);
-    
   }
 
 }
