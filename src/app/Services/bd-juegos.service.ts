@@ -21,7 +21,7 @@ export class BdJuegosService {
     {
       id: 2,
       nombre: 'Batman',
-      descripcion: 'Descripción B',
+      descripcion: 'Batman: Arkham Knight es un juego de acción y aventuras ambientado en un mundo abierto de Gotham City, que el jugador puede explorar libremente desde el comienzo del juego, lo que le permite viajar sin problemas a cualquier lugar dentro de sus límites. Muchos de los dispositivos y elementos de juego de los juegos anteriores de Arkham regresan, que incluyen la pistola de garfio, el lanzador de líneas, los batarangs, el sistema de contraataque, Detective Vision y el dispositivo de piratería remota. The Disruptor recibe actualizaciones de juegos anteriores, convirtiéndose en un rifle que se puede usar para desactivar o detonar armas enemigas y torretas de drones, cajas de armas trampa para electrocutar a los enemigos que intentan armarse y etiquetar vehículos para que Batman los rastree. El batarang controlado a distancia también se actualiza a incluir un escáner que se puede tirar para obtener información adicional sobre el área circundante.',
       precio: 3500,
       consolas: ['PC', 'Xbox'],
       genero: ['RPG', 'Estrategia', 'Simulación'],

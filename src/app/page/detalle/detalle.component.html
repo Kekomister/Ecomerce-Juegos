@@ -1,18 +1,43 @@
 <div class="contenedor-main">
 
-    <article class="card-juego" *ngIf = "juego">
-      
-        <img src="{{ juego.imagenes }}" alt="img_1" class="card-juego-img"/>
-        <p>{{ juego.nombre }}</p>
-        <p>{{ juego.descripcion }}</p>
-        <p>Precio : {{ juego.precio | currency}}</p>
-        <p>Generos : {{ juego.genero }}</p>
-        <p>Año de salida : {{ juego.anioRelease}}</p>
-        <p>Consolas : {{ juego.consolas }}</p>
-        <p>Requisitos : {{ juego.requisitos }}</p>
+    <img src="{{ juego.imagenes }}" alt="img_1" class="card-juego-img" />
+
+    <article class="card-juego" *ngIf="juego">
+        <p class="titulo">{{ juego.nombre }}</p>
+        <p class="precio">{{ juego.precio | currency}}</p>
         <div class="carrito">
             <button (click)="agregar(juego)" class="carrito-btn"><i class='bx bx-cart'></i></button>
             <button (click)="comprar(juego)" class="carrito-comprar">Comprar</button>
         </div>
     </article>
+
+    <div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item" data-toggle="tab" (click)="cambiar('descripcionTab')">
+                <a id="descripcionTabLink" class="nav-link active"> Descripcion </a>
+            </li>
+            <li class="nav-item" data-toggle="tab" (click)="cambiar('datosTecnicosTab')">
+                <a id="datosTecnicosTabLink" class="nav-link"> Datos tecnicos </a>
+            </li>
+            <li class="nav-item" data-toggle="tab" (click)="cambiar('MismoGeneroTab')">
+                <a id="MismoGeneroTabLink" class="nav-link"> Juegos del mismo genero </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="descripcionTab" class="descripcion">
+                <p>{{ juego.descripcion }}</p>
+            </div>
+            <div id="datosTecnicosTab" hidden>
+                <p>Nombre : {{ juego.nombre }}</p>
+                <p>Consola : <span *ngFor="let consola of juego.consolas">{{ consola }}, </span> </p>
+                <p>Generos : <span *ngFor="let genero of juego.genero">{{ genero }}, </span> </p>
+                <p>Año de salida : {{ juego.anioRelease}}</p>
+                <p>Requisitos : {{ juego.requisitos }}</p>
+            </div>
+            <div id="MismoGeneroTab" hidden>
+                <app-juegos [juegosElegidos]="jParecidos" [indiceRecorrido]="jParecidos.length"></app-juegos>
+            </div>
+        </div>
+    </div>
 </div>
