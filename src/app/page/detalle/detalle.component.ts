@@ -83,7 +83,7 @@ export class DetalleComponent implements OnInit, OnDestroy {
   setPaginator(page: number) {
     this.paginatorInicio = (3 * page) - 3;
     this.paginatorFin = 3 * page;
-    console.log("Inicio: " + this.paginatorInicio + "   Fin: " + this.paginatorFin);
+    this.paginaActiva(page);
   }
 
   moverPaginator(direccion: number) {
@@ -95,12 +95,19 @@ export class DetalleComponent implements OnInit, OnDestroy {
         mover = true;
       }
     }
-    console.log(mover);
     
     if(mover){
       this.paginatorInicio = this.paginatorInicio + direccion;
       this.paginatorFin = this.paginatorFin + direccion;
+      this.paginaActiva((this.paginatorInicio / 3)+1);
     }
+  }
+
+  paginaActiva(page : number){
+    for(let i = 0; i < (this.jParecidos.length / 3);i++){
+      document.getElementById("page "+ (i+1)).className = "page-link";
+    }
+    document.getElementById("page "+ page).className = "page-link active";
   }
 
   private llenarTandaDeJuegos(js: Juego[]) {
