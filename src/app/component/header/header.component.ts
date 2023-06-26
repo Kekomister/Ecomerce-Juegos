@@ -90,4 +90,8 @@ export class HeaderComponent implements OnInit{
     console.log(item);
   }
 
+  navegar():void{
+  this.router.navigate(['/contacto/']);
+  }
+
 }
