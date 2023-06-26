@@ -1,6 +1,6 @@
 <section class="contenedor-juegos">
   <!-- slice sirve para que el for vaya desde el indice cero hasta el requerido (por defaul ene ste caaso en 6), pero esta dependendiente del input osea ques e pasa de padre a hijo -->
-  <div *ngFor="let juego of juegosElegidos.slice(0, indiceRecorrido); let i = index">
+  <div *ngFor="let juego of juegosElegidos.slice(indiceInicial, indiceRecorrido); let i = index">
     <article class="card-juego">
       <img
         (click)="verDetalle(juego)"

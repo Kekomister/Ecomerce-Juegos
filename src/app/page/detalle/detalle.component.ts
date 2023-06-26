@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BdJuegosService } from 'src/app/Services/bd-juegos.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
@@ -9,14 +9,17 @@ import { Juego } from 'src/app/models/juego.model';
   templateUrl: './detalle.component.html',
   styleUrls: ['./detalle.component.css']
 })
-export class DetalleComponent implements OnInit {
+export class DetalleComponent implements OnInit, OnDestroy {
 
   nombre: string | undefined;
   juego: Juego | undefined;
 
   jParecidos: Juego[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private users: UsuariosService, private bd: BdJuegosService) { };
+  paginatorInicio: number = 0;
+  paginatorFin: number = 3;
+
+  constructor(private route: ActivatedRoute, private router: Router, private users: UsuariosService, private bd: BdJuegosService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -25,6 +28,10 @@ export class DetalleComponent implements OnInit {
     })
     this.reciboJuegos();
     this.llenarJuegosParecidos();
+  }
+
+  ngOnDestroy(): void {
+    this.bd.restaurarJuegos();
   }
 
   reciboJuegos() {
@@ -60,40 +67,63 @@ export class DetalleComponent implements OnInit {
   cambiar(aCambiar: string) {
     this.ocultar();
     document.getElementById(aCambiar).hidden = false;
-    document.getElementById((aCambiar+"Link")).className = "nav-link active";
+    document.getElementById((aCambiar + "Link")).className = "nav-link active";
   }
 
   llenarJuegosParecidos() {
 
     this.jParecidos = [];
 
-    for(let i = 0; i < this.juego.genero.length; i++){
-      let js = (this.bd.filtrarJuegosPor("genero",this.juego.genero[i]));
+    for (let i = 0; i < this.juego.genero.length; i++) {
+      let js = (this.bd.filtrarJuegosPor("genero", this.juego.genero[i]));
       this.llenarTandaDeJuegos(js);
     }
   }
 
-  private llenarTandaDeJuegos(js : Juego[]){
-    for(let i = 0; i < js.length; i++){
-      if(js[i] != this.juego){
-        if(!this.chequearJuego(js[i])){
+  setPaginator(page: number) {
+    this.paginatorInicio = (3 * page) - 3;
+    this.paginatorFin = 3 * page;
+    console.log("Inicio: " + this.paginatorInicio + "   Fin: " + this.paginatorFin);
+  }
+
+  moverPaginator(direccion: number) {
+    let mover = false;
+    if (direccion == 3 && this.paginatorFin < this.jParecidos.length) {
+      mover = true;
+    } else {
+      if (direccion == -3 && this.paginatorInicio > 0) {
+        mover = true;
+      }
+    }
+    console.log(mover);
+    
+    if(mover){
+      this.paginatorInicio = this.paginatorInicio + direccion;
+      this.paginatorFin = this.paginatorFin + direccion;
+    }
+  }
+
+  private llenarTandaDeJuegos(js: Juego[]) {
+    for (let i = 0; i < js.length; i++) {
+      if (js[i] != this.juego) {
+        if (!this.chequearJuego(js[i])) {
           this.jParecidos.push(js[i]);
         }
       }
     }
   }
 
-  private chequearJuego(juego : Juego) : boolean{
+  private chequearJuego(juego: Juego): boolean {
     let yaEsta = false;
-    for(let i = 0; i < this.jParecidos.length && !yaEsta; i++){
-      if(this.jParecidos[i] == juego){
+    for (let i = 0; i < this.jParecidos.length && !yaEsta; i++) {
+      if (this.jParecidos[i] == juego) {
         yaEsta = true;
       }
     }
     return yaEsta;
   }
 
-  private ocultar(){
+  private ocultar() {
     document.getElementById('descripcionTab').hidden = true;
     document.getElementById('datosTecnicosTab').hidden = true;
     document.getElementById('MismoGeneroTab').hidden = true;

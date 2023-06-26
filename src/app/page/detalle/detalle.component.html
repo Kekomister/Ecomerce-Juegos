@@ -1,29 +1,7 @@
 <div class="contenedor-main">
-  <!-- <img src="{{ juego.imagenes }}" alt="img_1" class="card-juego-img" /> -->
-
-  <!-- <div>
-        <article class="card-juego" *ngIf="juego">
-   
-          
-            <div class="carrito">
-                <button (click)="agregar(juego)" class="carrito-btn"><i class='bx bx-cart'></i></button>
-                <button (click)="comprar(juego)" class="carrito-comprar">Comprar</button>
-                <div>
-                    <h3>Entregas:</h3>
-                    <p> Retiro en tienda. Gratis!</p>
-                    <p> Envíos a todo el país!</p>
-                    <p>Retiro en California 2385 - Ciudad de Buenos Aires: <span>DISPONIBLE</span>.</p>
-                    <p>* PRODUCTO DISPONIBLE</p>
-                </div>
-                
-            </div>
-        </article>
-      
-
-    </div> -->
-
-  <section class="contenedor-info-juego">
-    <img src="{{ juego.imagenes }}" alt="img_1" class="card-juego-img" />
+    <section class="contenedor-info-juego">
+      <img src="{{ juego.imagenes }}" alt="img_1" class="card-juego-img" />
+     
     <div>
       <p class="titulo">{{ juego.nombre }}</p>
       <p class="precio">{{ juego.precio | currency }}</p>
@@ -86,8 +64,18 @@
     <div id="MismoGeneroTab" hidden>
       <app-juegos
         [juegosElegidos]="jParecidos"
-        [indiceRecorrido]="jParecidos.length"
+        [indiceRecorrido]="paginatorFin"
+        [indiceInicial]="paginatorInicio"
       ></app-juegos>
+      <nav aria-label="juegosSimilares">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" (click) ="moverPaginator(-3)">Previous</a></li>
+        <li class="page-item" *ngFor="let pag of jParecidos | paginas, let i = index">
+          <a class="page-link" (click) = "setPaginator(i+1)">{{i+1}}</a>
+        </li>
+        <li class="page-item"><a class="page-link" (click) ="moverPaginator(3)">Next</a></li>
+      </ul>
+    </nav>
     </div>
   </div>
 </div>
