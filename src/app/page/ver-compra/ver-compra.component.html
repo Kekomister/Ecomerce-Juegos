@@ -1,3 +1,105 @@
-<div class="contenedor-main">
-    HOLA
+<div class="prueba">
+   
+
+    <section class="paso-uno" *ngIf="mostrarPasos.pasoUno">
+        <h3>Paso 1: <span>Confirmá tus juegos seleccionados</span></h3>
+        <table class="table">
+            <thead>
+              <tr>
+                <td *ngFor="let titulo of titulosItems"> {{titulo}} </td>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of itemsCarro, let indice = index">
+              <tr>
+                <td> {{item.nombre}} </td>
+                <td> {{item.cantidad}} </td>
+                <td> {{item.precio}} </td>
+                <td style="color: tomato;" (click)="eliminar(indice, item)"><i class='bx bxs-trash'></i></td>
+              </tr>
+            </tbody>       
+          </table>
+          <h3>Total a pagar: {{total | currency}}</h3>
+          <button type="button" class="btn btn-light" (click)="next(2)">Siguiente</button>
+    </section>
+
+    <section class="paso-dos" *ngIf="mostrarPasos.pasoDos">
+      <h3>Paso 2: <span>Selecciona el metodo de pago</span></h3>
+      <div class="contenendor-tarjetas">
+        <div class="contenendor-tarjetas-individual">
+          <img class="img" src="assets/debito.png" alt="">
+          <div class="info">
+            <label for="">Efectivo</label>
+            <input type="radio" value="efectivo" [(ngModel)]="medioDePago">
+          </div>
+        </div>
+        <div class="contenendor-tarjetas-individual">
+          <img class="img" src="assets/credito.png" alt="">
+          <div class="info">
+            <label for="">Credito VISA</label>
+            <input type="radio" value="credito" [(ngModel)]="medioDePago">
+          </div>
+        </div>
+      </div>
+
+      <section *ngIf="medioDePago === 'credito'" class="cuotas">
+        <div class="cuotas-individual">
+          <input type="radio" value="1" [(ngModel)]="cantidadDeCuotas"> 
+          <label for="">1 cuota de: {{total | currency}}</label>
+        </div>
+        <div class="cuotas-individual">
+          <input type="radio" value="3" [(ngModel)]="cantidadDeCuotas"> 
+          <label for="">3 cuotas de: {{(total / 3) + ((total * 10) / 100) | currency}}</label>
+        </div>
+        <div class="cuotas-individual">
+          <input type="radio" value="6" [(ngModel)]="cantidadDeCuotas"> 
+          <label for="">6 cuotas de: {{(total / 6) + ((total * 10) / 100) | currency}}</label>
+        </div>
+        <div class="cuotas-individual">
+          <input type="radio" value="12" [(ngModel)]="cantidadDeCuotas"> 
+          <label for="">12 cuotas de: {{(total / 12) + ((total * 10) / 100) | currency}}</label>
+        </div>
+      </section>
+      <div>
+        <button type="button" class="btn btn-light padd back" (click)="next(3)">Atras</button>
+        <button type="button" class="btn btn-light padd" (click)="next(4)">Siguiente</button>
+      </div>
+      
+    </section>
+
+    <section class="paso-tres" *ngIf="mostrarPasos.pasoTres">
+      <div *ngIf="medioDePago === 'credito'" class="cuotas">
+        <!-- <div class="cuotas"> -->
+        <h3>Paso 3: <span>Completa los datos de la tarjeta</span></h3>
+        <label for="">Numero de la tarjeta</label>
+        <input [(ngModel)]="numTarjeta" type="number" >
+
+        <label for="">Nombre y apellido del titular </label>
+        <input [(ngModel)]="name" type="text">
+
+        <label for="">Fecha de vencimiento</label>
+        <input [(ngModel)]="fechaVencimiento" type="date">
+
+        <label for="">Numero del dorso de la tarjeta</label>
+        <input [(ngModel)]="dorso" type="number">
+        <div>
+          <button type="button" class="btn btn-light padd" (click)="next(5)">Atras</button>
+          <button type="button" class="btn btn-light padd" (click)="next(6)">Siguiente</button>
+        </div>
+      </div>
+      
+
+      <div *ngIf="medioDePago === 'efectivo'" class="cuotas">
+        <!-- <div class="cuotas"> -->
+        <h3>Paso 3: <span>Pagar en los puntos establecidos</span></h3>
+        <label for="">Monto a pagar: {{total | currency}}</label>
+        <ul>
+          <li>Sarmiento 2556</li>
+          <li>Av. Belgrao 1248</li>
+          <li>Transferencia bancaria: 01541212786564544 (alias: dixit.games.srl)</li>
+        </ul>
+        <button type="button" class="btn btn-light padd" (click)="next(6)">Finalizar</button>
+      </div>
+    
+    </section>
 </div>
+

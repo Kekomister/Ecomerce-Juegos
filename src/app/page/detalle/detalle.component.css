@@ -2,6 +2,8 @@
     padding-top: 250px;
     display: flex;
     justify-content: center;
+    width: 800px;
+    margin: 0 auto;
 }
 
 .card-juego{
@@ -41,16 +43,43 @@
     margin-right: 10px;
 }
 
-p{
+/* p{
     margin-bottom: 10px;
     margin-left: 15px;
-}
+} */
 
 .titulo,.precio{
     font-size:x-large;
 }
 
+.contenedor-mas-info{
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
 .descripcion{
-    width: 500px;
+    /* width: 500px; */
     overflow-wrap: normal;
+}
+
+
+.contenedor-info-juego{
+    display: flex;
+    gap: 2rem;
+}
+.contenedor-info-juego-btns{
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+.contenedor-info-juego-btns button{
+    width: 150px;
+}
+.negrita{
+    font-weight: 700;
+}
+.contenedor-entregas{
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
 }

@@ -249,6 +249,15 @@ export class BdJuegosService {
 
   proximoValor(valor : number) : void {
     this.cantidadItems.next(this.cantidadItems.getValue() + valor);
+    this.cantidadItems.next(this.getCantidadJuegos());
+  }
+
+  getCantidadJuegos():number{
+    let res = 0
+    for (let i = 0; i < this.newCarrito.length; i++) {
+      res += this.newCarrito[i].cantidad  
+    }
+    return res
   }
 
   restarValor(valor : number) : void {
@@ -388,8 +397,12 @@ export class BdJuegosService {
   }
 
   sacarJuegoCarrito(index: number, item: any): void {
+    console.log(item);
+    
     if (item.cantidad > 1) {
+      let resta =  item.precio / item.cantidad
       this.newCarrito[index].cantidad--;
+      this.newCarrito[index].precio = this.newCarrito[index].precio - resta;
     }else{
       this.newCarrito.splice(index, 1);
     }

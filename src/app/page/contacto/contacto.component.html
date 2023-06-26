@@ -1,3 +1,18 @@
 <div class="contenedor-main">
-    <p>contacto works!</p>
+    <div class="form">
+        <h2>Completa el formulario y a la brevedad nuestro equipo se pondra en contacto para asesorarte</h2>
+        <label for="">Tu nombre</label>
+        <input [(ngModel)]="name" type="text" name="" id="">
+
+        <label for="">Tu email</label>
+        <input [(ngModel)]="email" type="email" name="" id="">
+
+        <label for="">Tu numero de telefono</label>
+        <input [(ngModel)]="number" type="text" name="" id="">
+
+        <label for="">Mensaje</label>
+        <textarea [(ngModel)]="mensaje" name="" id="" cols="30" rows="10"></textarea>
+
+        <button type="button" (click)="enviar()" class="btn">Enviar</button>
+    </div>
 </div>
