@@ -52,7 +52,12 @@ export class DetalleComponent implements OnInit, OnDestroy {
   }
 
   agregar(j: Juego) {
-    this.bd.agregarJuegoCarrito(j);
+    if (this.corroborar()) {
+      this.bd.agregarJuegoCarrito(j);
+      this.bd.proximoValor(1);
+    } else {
+      this.users.verModal = true;
+    }
   }
 
   comprar(j: Juego) {

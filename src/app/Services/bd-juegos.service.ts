@@ -409,4 +409,9 @@ export class BdJuegosService {
     this.restarValor(1);
   }
 
+  vaciarCarrito(){
+    this.newCarrito = [];
+    this.restarValor(this.cantidadItems.getValue());
+  }
+
 }

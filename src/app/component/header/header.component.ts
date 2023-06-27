@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { BdJuegosService } from 'src/app/Services/bd-juegos.service';
+import { MensajesService } from 'src/app/Services/mensajes.service';
 import { UsuariosService } from 'src/app/Services/usuarios.service';
 import { User } from 'src/app/models/user.models';
 
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit{
 
   carritoCant: number = 0;
 
-  constructor(private router: Router, public users: UsuariosService, private bd: BdJuegosService) { }
+  constructor(private router: Router, public users: UsuariosService, private bd: BdJuegosService, private msj : MensajesService) { }
 
   ngOnInit() {
     this.estadLog = this.users.getEstadoLog();
@@ -49,9 +50,27 @@ export class HeaderComponent implements OnInit{
   }
 
   loguearAfuera(){
-    this.userPrueba.vaciar();
-    this.users.logOut();
-    this.estadLog = this.users.getEstadoLog();
+    this.msj.preguntar(
+      "Estas seguro de salir?","","Si","No"
+    ).then((result) => {
+      if (result.isConfirmed) {
+        this.msj.success("Se ha salido de su cuenta correctamente!", "Ok");
+        this.userPrueba.vaciar();
+        this.users.logOut();
+        this.estadLog = this.users.getEstadoLog();
+        this.paginaCheck();
+      } else if (result.isDismissed) {
+        
+      }
+    })
+    
+  }
+
+  paginaCheck(){
+    //console.log(this.router.routerState.snapshot.url);
+    if(this.router.routerState.snapshot.url == "/compra"){
+      this.router.navigate(["/"]);
+    }
   }
 
   loguear(): void {
