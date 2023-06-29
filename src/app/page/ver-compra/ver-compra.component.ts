@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BdJuegosService } from 'src/app/Services/bd-juegos.service';
+import { MensajesService } from 'src/app/Services/mensajes.service';
+import { UsuariosService } from 'src/app/Services/usuarios.service';
 import Swal from 'sweetalert2';
 
 @Component({

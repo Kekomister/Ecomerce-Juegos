@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit{
     this.bd.cantidadItems.subscribe(
       (nuevoValor) => {
         this.carritoCant = nuevoValor;
+        this.items = this.bd.getCarrito();
       }
     )
   }
