@@ -18,8 +18,9 @@
 
 .card-juego-img{
     border-radius: 15px 15px 0px 0px;
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
+    object-fit:fill;
 }
 .card-juego-cont-info{
     margin-top: 1rem;
