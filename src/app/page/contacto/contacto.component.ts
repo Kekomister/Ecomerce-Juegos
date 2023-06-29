@@ -6,10 +6,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./contacto.component.css'],
 })
 export class ContactoComponent implements OnInit {
-  name: string;
-  email: string;
-  number: string;
-  mensaje: string;
+  name: string = '';
+  email: string = '';
+  number: string = '';
+  mensaje: string = '';
 
   ngOnInit(): void {}
 

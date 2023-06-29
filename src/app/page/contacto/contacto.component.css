@@ -1,20 +1,37 @@
 .contenedor-main{
     padding-top: 300px;
 }
-.form{
-    width: 700px;
-    margin: 0 auto;
+.contenedor-baner-form{
+    width: 800px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 0 auto 5rem auto;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, .1);
     border-radius: 15px;
-    color: rgba(0, 0, 0, .6);
+}
+.contenedor-baner-form img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.form{  
+    color: #fff;
     display: flex;
     flex-direction: column;
     padding: 2rem;
     gap: 0.3rem;
+    height: 100%;
+    background-color: #13014D;
 }
 .form h2{
     font-size: 22px;
     text-align: center;
+}
+.form textarea{
+    height: 100px;
 }
 .btn{
     background-color: #081581;
