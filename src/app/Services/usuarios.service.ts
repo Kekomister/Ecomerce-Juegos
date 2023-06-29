@@ -16,6 +16,13 @@ export class UsuariosService {
   public Login(capContra : string | undefined, capMail : string | undefined) {
     if (this.userPrueba.mail === capMail && this.userPrueba.contraseña === capContra) {
       this.estadLog = true;
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Login exitoso',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }else{
       Swal.fire({
         icon: 'error',

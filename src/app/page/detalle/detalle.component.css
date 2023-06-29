@@ -4,6 +4,7 @@
     justify-content: center;
     width: 800px;
     margin: 0 auto;
+    
 }
 
 .card-juego{
@@ -57,6 +58,10 @@
     width: 800px;
     margin: 0 auto;
     margin-top: 2rem;
+    margin-bottom: 7rem;
+}
+.contenedor-mas-info a{
+    cursor: pointer;
 }
 .descripcion{
     /* width: 500px; */

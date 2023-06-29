@@ -25,7 +25,7 @@ export class ContactoComponent implements OnInit {
       Swal.fire({
         position: 'top-end',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Mensaje enviado con exito',
         showConfirmButton: false,
         timer: 1500,
       });
