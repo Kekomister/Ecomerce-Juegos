@@ -6,6 +6,9 @@
     gap: 2rem;
     margin: 2rem 0;
 }
+.prueba{
+    margin-bottom: 5rem;
+}
 
 .card-juego{
     box-shadow: 2px 5px 5px rgba(0, 0, 0, .1);
@@ -26,6 +29,9 @@
 }
 .title{
     font-weight: 700;
+}
+.margin{
+    margin-bottom: 5rem;
 }
 .card-juego-img{
     border-radius: 15px 15px 0px 0px;
