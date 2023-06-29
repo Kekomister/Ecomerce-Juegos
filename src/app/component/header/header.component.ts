@@ -10,9 +10,8 @@ import { User } from 'src/app/models/user.models';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
-
   textoBuscar: string = "";
-  userPrueba: User = new User("usuario", "usuario@gmail.com", "usuario");
+  userPrueba: string = ""
   estadLog: boolean = false
   capturarContrasenia: string | undefined;
   capturarMail: string | undefined;
@@ -24,7 +23,9 @@ export class HeaderComponent implements OnInit{
 
   carritoCant: number = 0;
 
-  constructor(private router: Router, public users: UsuariosService, private bd: BdJuegosService) { }
+  constructor(private router: Router, public users: UsuariosService, private bd: BdJuegosService) { 
+    this.userPrueba = users.userPrueba.nombreUsuario
+  }
 
   ngOnInit() {
     this.estadLog = this.users.getEstadoLog();
@@ -49,7 +50,6 @@ export class HeaderComponent implements OnInit{
   }
 
   loguearAfuera(){
-    this.userPrueba.vaciar();
     this.users.logOut();
     this.estadLog = this.users.getEstadoLog();
   }

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.models';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
 
-  private userPrueba: User = new User ("usuario" , "usuario@gmail.com" , "usuario");
+  userPrueba: User = new User ("Profe Guille" , "admin" , "admin");
   private estadLog: boolean = false;
   public verModal: boolean = false;
 
@@ -16,7 +17,11 @@ export class UsuariosService {
     if (this.userPrueba.mail === capMail && this.userPrueba.contraseña === capContra) {
       this.estadLog = true;
     }else{
-      //manejo de mail o contraseña incorrecto
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Cuenta o contraseña incorrectos!',
+      })
     } 
   }
 

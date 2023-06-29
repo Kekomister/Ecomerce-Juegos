@@ -100,6 +100,22 @@
   color: #fff;
   padding: 0 30px;
 }
+.btn{
+  background-color: #fff;
+  border: solid 1px #081581;
+  padding: 0 20px;
+  margin: 2rem 0 5rem 0;
+  font-size: 22px;
+  letter-spacing: normal;
+  transition: 0.3s;
+}
+.btn:hover{
+  background-color: #081581;
+  border: solid 1px #081581;
+  padding: 0 20px;
+  color: #fff;
+  letter-spacing: 2px;
+}
 @media (max-width: 480px) {
   .ancho-default {
     width: 90%;

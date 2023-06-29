@@ -3,14 +3,14 @@
     grid-template-columns: repeat(3,1fr);
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     margin: 2rem 0;
 }
 
 .card-juego{
     box-shadow: 2px 5px 5px rgba(0, 0, 0, .1);
     border-radius: 15px;
-    height: 600px;
+    height: 420px;
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -20,8 +20,8 @@
 .card-juego-img{
     border-radius: 15px 15px 0px 0px;
     width: 350px;
-    height: 350px;
-    object-fit: contain;
+    height: 200px;
+
 }
 
 .card-juego-cont-info{
@@ -39,6 +39,13 @@
     background-color: #fff;
     border: solid 1px #081581;
     padding: 0 20px;
+    transition: 0.2s;
+}
+.carrito-btn:hover{
+    background-color: #081581;
+    border: solid 1px #081581;
+    padding: 0 20px;
+    color: #fff;
 }
 .carrito-comprar{
     background-color: #081581;;

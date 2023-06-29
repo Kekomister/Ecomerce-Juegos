@@ -84,6 +84,11 @@
     display: flex;
     gap: 1rem;
 }
+.contenedor-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .padd{
     margin-top: 2rem;
 }

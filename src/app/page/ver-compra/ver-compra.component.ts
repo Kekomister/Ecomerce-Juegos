@@ -107,9 +107,14 @@ export class VerCompraComponent implements OnInit {
                   no-repeat
                 `,
             });
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Debe completar todos los datos para finalizar!',
+            });
           }
         }
-
         break;
       default:
         break;
@@ -125,3 +130,4 @@ export class VerCompraComponent implements OnInit {
     }
   }
 }
+
