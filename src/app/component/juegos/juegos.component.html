@@ -12,7 +12,7 @@
         <p>{{ juego.nombre }}</p>
         <p>Precio : {{ juego.precio | currency }}</p>
         <p>Generos : {{ juego.genero }}</p>
-        Consolas : {{ juego.consolas }}
+        <p>Consolas : {{ juego.consolas }}</p>
       </div>
       <div class="carrito">
         <button (click)="agregar(juego)" class="carrito-btn">
