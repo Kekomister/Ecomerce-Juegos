@@ -11,6 +11,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { JuegosComponent } from './component/juegos/juegos.component';
 import { DetalleComponent } from './page/detalle/detalle.component';
 import { VerCompraComponent } from './page/ver-compra/ver-compra.component';
+import { PaginasPipe } from './pipes/paginas.pipe';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { VerCompraComponent } from './page/ver-compra/ver-compra.component';
     JuegosComponent,
     DetalleComponent,
     VerCompraComponent,
+    PaginasPipe,
   ],
   imports: [
     BrowserModule,

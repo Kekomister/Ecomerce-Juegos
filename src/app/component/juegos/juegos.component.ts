@@ -12,7 +12,7 @@ import { Juego } from 'src/app/models/juego.model';
 })
 export class JuegosComponent implements OnInit{
   @Input() indiceRecorrido: number = 6;
-
+  @Input() indiceInicial : number = 0;
   @Input() juegosElegidos: Juego[] = [];
 
   constructor(private router: Router, private users: UsuariosService, private bd : BdJuegosService) { }
